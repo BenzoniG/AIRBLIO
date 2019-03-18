@@ -1,0 +1,735 @@
+2019-03-18 17:18:49 DEBUG   ::1             - This is an already logged session. _SESSION['dol_login']=airblio _SESSION['dol_entity']=1
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT u.rowid, u.lastname, u.firstname, u.employee, u.gender, u.birth, u.email, u.job, u.skype, u.twitter, u.facebook, u.signature, u.office_phone, u.office_fax, u.user_mobile, u.address, u.zip, u.town, u.fk_state as state_id, u.fk_country as country_id, u.admin, u.login, u.note, u.pass, u.pass_crypted, u.pass_temp, u.api_key, u.fk_soc, u.fk_socpeople, u.fk_member, u.fk_user, u.ldap_sid, u.statut, u.lang, u.entity, u.datec as datec, u.tms as datem, u.datelastlogin as datel, u.datepreviouslogin as datep, u.photo as photo, u.openid as openid, u.accountancy_code, u.thm, u.tjm, u.salary, u.salaryextra, u.weeklyhours, u.color, u.dateemployment, u.dateemploymentend, u.ref_int, u.ref_ext, u.default_range, u.default_c_exp_tax_cat, c.code as country_code, c.label as country, d.code_departement as state_code, d.nom as state FROM llx_user as u LEFT JOIN llx_c_country as c ON u.fk_country = c.rowid LEFT JOIN llx_c_departements as d ON u.fk_state = d.rowid WHERE u.entity IN (0, 1) AND u.login = 'airblio' ORDER BY u.entity ASC
+2019-03-18 17:18:49 DEBUG   ::1             fetch_name_optionals_label elementtype=user
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT rowid,name,label,type,size,elementtype,fieldunique,fieldrequired,param,pos,alwayseditable,perms,langs,list,totalizable,fielddefault,fieldcomputed,entity,enabled,help FROM llx_extrafields WHERE entity IN (0,1) AND elementtype = 'user' ORDER BY pos
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT param, value FROM llx_user_param WHERE fk_user = 1 AND entity = 1
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT rowid, entity, type, page, param, value FROM llx_default_values WHERE entity IN (1) AND user_id IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT DISTINCT r.module, r.perms, r.subperms FROM llx_user_rights as ur, llx_rights_def as r WHERE r.id = ur.fk_id AND ur.entity = 1 AND ur.fk_user= 1 AND r.perms IS NOT NULL
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT DISTINCT r.module, r.perms, r.subperms FROM llx_usergroup_rights as gr, llx_usergroup_user as gu, llx_rights_def as r WHERE r.id = gr.fk_id AND gr.entity = 1 AND r.entity = 1 AND gr.fk_usergroup = gu.fk_usergroup AND gu.fk_user = 1 AND r.perms IS NOT NULL
+2019-03-18 17:18:49 DEBUG   ::1             --- Access to /admin/modules.php - action=, massaction=
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT transkey, transvalue FROM llx_overwrite_trans where lang='fr_FR'
+2019-03-18 17:18:49 DEBUG   ::1             Menubase::menuLoad mymainmenu=home myleftmenu=setup type_user=0 menu_handler=eldy tabMenu size=0
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT m.rowid, m.type, m.module, m.fk_menu, m.fk_mainmenu, m.fk_leftmenu, m.url, m.titre, m.langs, m.perms, m.enabled, m.target, m.mainmenu, m.leftmenu, m.position FROM llx_menu as m WHERE m.entity IN (0,1) AND m.menu_handler IN ('eldy','all') AND m.usertype IN (0,2) ORDER BY m.position, m.rowid
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT rowid, title, url, target FROM llx_bookmark WHERE (fk_user = 1 OR fk_user is NULL OR fk_user = 0) AND entity IN (1) ORDER BY position
+2019-03-18 17:18:49 DEBUG   ::1             Scan directory G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/htdocs/core/modules/ for module descriptor files (modXXX.class.php)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'adherent' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, fieldrequired FROM llx_extrafields WHERE elementtype = 'adherent' AND entity IN (0,1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT code, label, description FROM llx_c_action_trigger ORDER by rang
+2019-03-18 17:18:49 DEBUG   ::1             Module modAsset not qualified
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT rowid FROM llx_blockedlog WHERE entity = 1 AND action not in ('MODULE_SET','MODULE_RESET') LIMIT 1
+2019-03-18 17:18:49 DEBUG   ::1             Module Blockedlog alreadyUsed with ignoresystem=1 is 
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param FROM llx_extrafields WHERE elementtype = 'societe'
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param FROM llx_extrafields WHERE elementtype = 'socpeople'
+2019-03-18 17:18:49 DEBUG   ::1             Module modCollab not qualified
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'commande' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'commandedet' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'product' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             Module modDataPolicy not qualified
+2019-03-18 17:18:49 DEBUG   ::1             User::loadParentOf
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT fk_user as id_parent, rowid as id_son FROM llx_user WHERE fk_user <> 0 AND entity IN (0,1)
+2019-03-18 17:18:49 DEBUG   ::1             User::get_full_tree get user list
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT DISTINCT u.rowid, u.firstname, u.lastname, u.fk_user, u.fk_soc, u.login, u.email, u.gender, u.admin, u.statut, u.photo, u.entity FROM llx_user as u WHERE u.entity IN (0,1)
+2019-03-18 17:18:49 DEBUG   ::1             User::get_full_tree call to build_path_from_id_user
+2019-03-18 17:18:49 DEBUG   ::1             User::build_path_from_id_user id_user=1 protection=0
+2019-03-18 17:18:49 DEBUG   ::1             User::get_full_tree dol_sort_array
+2019-03-18 17:18:49 DEBUG   ::1             Build childid for id = 1
+2019-03-18 17:18:49 DEBUG   ::1             Module modDeplacement not qualified
+2019-03-18 17:18:49 DEBUG   ::1             Module modDocumentGeneration not qualified
+2019-03-18 17:18:49 DEBUG   ::1             Module modDynamicPrices not qualified
+2019-03-18 17:18:49 DEBUG   ::1             Module modEmailCollector not qualified
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT DISTINCT tc.rowid, tc.code, tc.libelle, tc.position FROM llx_c_type_contact as tc WHERE tc.element='commande' AND tc.source='external' ORDER BY position ASC, code
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT DISTINCT tc.rowid, tc.code, tc.libelle, tc.position FROM llx_c_type_contact as tc WHERE tc.element='commande' AND tc.source='external' ORDER BY position ASC, code
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'expedition' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'expeditiondet' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'facture' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'facturedet' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'product' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'facture' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param FROM llx_extrafields WHERE elementtype = 'facture_fourn'
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param FROM llx_extrafields WHERE elementtype = 'facture_fourn_det'
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param FROM llx_extrafields WHERE elementtype = 'facture_fourn'
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param FROM llx_extrafields WHERE elementtype = 'commande_fournisseur'
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param FROM llx_extrafields WHERE elementtype = 'commande_fournisseurdet'
+2019-03-18 17:18:49 DEBUG   ::1             Module modHRM not qualified
+2019-03-18 17:18:49 DEBUG   ::1             Module modLabel not qualified
+2019-03-18 17:18:49 DEBUG   ::1             useNPR
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT t.rowid FROM llx_c_tva as t, llx_c_country as c WHERE t.fk_pays = c.rowid AND c.code = 'FR' AND t.active = 1 AND t.recuperableonly = 1
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'product' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             useNPR
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT t.rowid FROM llx_c_tva as t, llx_c_country as c WHERE t.fk_pays = c.rowid AND c.code = 'FR' AND t.active = 1 AND t.recuperableonly = 1
+2019-03-18 17:18:49 DEBUG   ::1             useLocalTax
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT t.localtax1, t.localtax2 FROM llx_c_tva as t, llx_c_country as c WHERE t.fk_pays = c.rowid AND c.code = 'FR' AND t.active = 1 AND t.localtax1_type <> '0'
+2019-03-18 17:18:49 DEBUG   ::1             useLocalTax
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT t.localtax1, t.localtax2 FROM llx_c_tva as t, llx_c_country as c WHERE t.fk_pays = c.rowid AND c.code = 'FR' AND t.active = 1 AND t.localtax2_type <> '0'
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, fieldrequired FROM llx_extrafields WHERE elementtype = 'product' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             useNPR
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT t.rowid FROM llx_c_tva as t, llx_c_country as c WHERE t.fk_pays = c.rowid AND c.code = 'FR' AND t.active = 1 AND t.recuperableonly = 1
+2019-03-18 17:18:49 DEBUG   ::1             useLocalTax
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT t.localtax1, t.localtax2 FROM llx_c_tva as t, llx_c_country as c WHERE t.fk_pays = c.rowid AND c.code = 'FR' AND t.active = 1 AND t.localtax1_type <> '0'
+2019-03-18 17:18:49 DEBUG   ::1             useLocalTax
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT t.localtax1, t.localtax2 FROM llx_c_tva as t, llx_c_country as c WHERE t.fk_pays = c.rowid AND c.code = 'FR' AND t.active = 1 AND t.localtax2_type <> '0'
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'projet' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'projet_task' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, fieldrequired FROM llx_extrafields WHERE elementtype = 'projet_task' AND entity IN (0,1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'propal' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'propaldet' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'product' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'societe' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             Module modReceiptPrinter not qualified
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'resource' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, fieldrequired FROM llx_extrafields WHERE elementtype = 'resource' AND entity IN (0,1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type FROM llx_extrafields WHERE elementtype = 'product'
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, fieldrequired FROM llx_extrafields WHERE elementtype = 'product' AND entity IN (0,1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'societe' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'socpeople' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'societe' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, fieldrequired FROM llx_extrafields WHERE elementtype = 'societe' AND entity IN (0,1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, fieldrequired FROM llx_extrafields WHERE elementtype = 'socpeople' AND entity IN (0,1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'product' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, type, param, fieldcomputed, fielddefault FROM llx_extrafields WHERE elementtype = 'product_lot' AND type != 'separate' AND entity IN (0, 1)
+2019-03-18 17:18:49 DEBUG   ::1             Module modTakePos not qualified
+2019-03-18 17:18:49 DEBUG   ::1             Module modTicket not qualified
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT name, label, fieldrequired FROM llx_extrafields WHERE elementtype = 'user' AND entity IN (0,1)
+2019-03-18 17:18:49 DEBUG   ::1             Module modWebServicesClient not qualified
+2019-03-18 17:18:49 DEBUG   ::1             sql=SELECT rowid FROM llx_blockedlog WHERE entity = 1 AND action not in ('MODULE_SET','MODULE_RESET') LIMIT 1
+2019-03-18 17:18:49 DEBUG   ::1             Module Blockedlog alreadyUsed with ignoresystem=1 is 
+2019-03-18 17:18:49 DEBUG   ::1             --- End access to /admin/modules.php
+2019-03-18 17:20:26 DEBUG   ::1             - This is an already logged session. _SESSION['dol_login']=airblio _SESSION['dol_entity']=1
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT u.rowid, u.lastname, u.firstname, u.employee, u.gender, u.birth, u.email, u.job, u.skype, u.twitter, u.facebook, u.signature, u.office_phone, u.office_fax, u.user_mobile, u.address, u.zip, u.town, u.fk_state as state_id, u.fk_country as country_id, u.admin, u.login, u.note, u.pass, u.pass_crypted, u.pass_temp, u.api_key, u.fk_soc, u.fk_socpeople, u.fk_member, u.fk_user, u.ldap_sid, u.statut, u.lang, u.entity, u.datec as datec, u.tms as datem, u.datelastlogin as datel, u.datepreviouslogin as datep, u.photo as photo, u.openid as openid, u.accountancy_code, u.thm, u.tjm, u.salary, u.salaryextra, u.weeklyhours, u.color, u.dateemployment, u.dateemploymentend, u.ref_int, u.ref_ext, u.default_range, u.default_c_exp_tax_cat, c.code as country_code, c.label as country, d.code_departement as state_code, d.nom as state FROM llx_user as u LEFT JOIN llx_c_country as c ON u.fk_country = c.rowid LEFT JOIN llx_c_departements as d ON u.fk_state = d.rowid WHERE u.entity IN (0, 1) AND u.login = 'airblio' ORDER BY u.entity ASC
+2019-03-18 17:20:26 DEBUG   ::1             fetch_name_optionals_label elementtype=user
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT rowid,name,label,type,size,elementtype,fieldunique,fieldrequired,param,pos,alwayseditable,perms,langs,list,totalizable,fielddefault,fieldcomputed,entity,enabled,help FROM llx_extrafields WHERE entity IN (0,1) AND elementtype = 'user' ORDER BY pos
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT param, value FROM llx_user_param WHERE fk_user = 1 AND entity = 1
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT rowid, entity, type, page, param, value FROM llx_default_values WHERE entity IN (1) AND user_id IN (0, 1)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT DISTINCT r.module, r.perms, r.subperms FROM llx_user_rights as ur, llx_rights_def as r WHERE r.id = ur.fk_id AND ur.entity = 1 AND ur.fk_user= 1 AND r.perms IS NOT NULL
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT DISTINCT r.module, r.perms, r.subperms FROM llx_usergroup_rights as gr, llx_usergroup_user as gu, llx_rights_def as r WHERE r.id = gr.fk_id AND gr.entity = 1 AND r.entity = 1 AND gr.fk_usergroup = gu.fk_usergroup AND gu.fk_user = 1 AND r.perms IS NOT NULL
+2019-03-18 17:20:26 DEBUG   ::1             --- Access to /index.php - action=, massaction=
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT transkey, transvalue FROM llx_overwrite_trans where lang='fr_FR'
+2019-03-18 17:20:26 DEBUG   ::1             Menubase::menuLoad mymainmenu=home myleftmenu=home type_user=0 menu_handler=eldy tabMenu size=0
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT m.rowid, m.type, m.module, m.fk_menu, m.fk_mainmenu, m.fk_leftmenu, m.url, m.titre, m.langs, m.perms, m.enabled, m.target, m.mainmenu, m.leftmenu, m.position FROM llx_menu as m WHERE m.entity IN (0,1) AND m.menu_handler IN ('eldy','all') AND m.usertype IN (0,2) ORDER BY m.position, m.rowid
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT rowid, title, url, target FROM llx_bookmark WHERE (fk_user = 1 OR fk_user is NULL OR fk_user = 0) AND entity IN (1) ORDER BY position
+2019-03-18 17:20:26 DEBUG   ::1             InfoBox::listBoxes get default box list for mode=activated userid=
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT b.rowid, b.position, b.box_order, b.fk_user, d.rowid as box_id, d.file, d.note, d.tms FROM llx_boxes as b, llx_boxes_def as d WHERE b.box_id = d.rowid AND b.entity IN (0,1) AND b.position = 0 AND b.fk_user = 0 ORDER BY b.box_order
+2019-03-18 17:20:26 DEBUG   ::1             box_lastlogin::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, f.rowid as facid, f.ref, f.ref_supplier, f.date_lim_reglement as datelimite, f.amount, f.datef as df, f.total_ht as total_ht, f.tva as total_tva, f.total_ttc, f.paye, f.fk_statut, f.type FROM llx_societe as s,llx_facture_fourn as f WHERE f.fk_soc = s.rowid AND f.entity = 1 AND f.paye=0 AND fk_statut = 1 ORDER BY datelimite DESC, f.ref_supplier DESC  LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_factures_fourn_imp::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_fournisseur, s.logo, f.rowid as facid, f.ref, f.ref_supplier, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut, f.datef as df, f.datec as datec, f.date_lim_reglement as datelimite, f.tms, f.type FROM llx_societe as s, llx_facture_fourn as f WHERE f.fk_soc = s.rowid AND f.entity = 1 ORDER BY f.tms DESC, f.ref DESC  LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_factures_fourn::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.code_fournisseur, s.logo, c.rowid, c.ref, c.tms, c.date_commande, c.total_ht, c.tva as total_tva, c.total_ttc, c.fk_statut FROM llx_societe as s, llx_commande_fournisseur as c WHERE c.fk_soc = s.rowid AND c.entity = 1 ORDER BY c.tms DESC, c.ref DESC  LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_supplier_orders::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.email, s.code_client, s.logo, f.facnumber, f.date_lim_reglement as datelimite, f.type, f.amount, f.datef as df, f.total as total_ht, f.tva as total_tva, f.total_ttc, f.paye, f.fk_statut, f.rowid as facid, sum(pf.amount) as am FROM llx_societe as s, llx_facture as f LEFT JOIN llx_paiement_facture as pf ON f.rowid=pf.fk_facture  WHERE f.fk_soc = s.rowid AND f.entity = 1 AND f.paye = 0 AND fk_statut = 1 GROUP BY s.nom, s.rowid, s.code_client, s.logo, f.facnumber, f.date_lim_reglement, f.type, f.amount, f.datef, f.total, f.tva, f.total_ttc, f.paye, f.fk_statut, f.rowid ORDER BY datelimite ASC, f.facnumber ASC  LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_factures_imp::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT f.rowid as facid, f.facnumber, f.type, f.total as total_ht, f.tva as total_tva, f.total_ttc, f.datef as df, f.paye, f.fk_statut, f.datec, f.tms, s.rowid as socid, s.nom as name, s.code_client, s.email, s.tva_intra, s.code_compta, s.siren as idprof1, s.siret as idprof2, s.ape as idprof3, s.idprof4, s.idprof5, s.idprof6, f.date_lim_reglement as datelimite FROM (llx_societe as s,llx_facture as f) WHERE f.fk_soc = s.rowid AND f.entity = 1 ORDER BY f.tms DESC, f.facnumber DESC  LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_factures::showBox
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::getNbByMonthWithPrevYear cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getNbByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache is not found or older than now - cachedelay (1552926026 - 86400) so we can't use it.
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::_getNbByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(f.datef,'%m') as dm, COUNT(*) as nb FROM llx_facture as f WHERE f.datef BETWEEN '2018-01-01 00:00:00' AND '2018-12-31 23:59:59' AND  f.fk_statut > 0 AND f.entity = 1 AND (f.fk_statut <> 3 OR f.close_code <> 'replaced') AND f.type IN (0,1,2,3,5) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::_getNbByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(f.datef,'%m') as dm, COUNT(*) as nb FROM llx_facture as f WHERE f.datef BETWEEN '2019-01-01 00:00:00' AND '2019-12-31 23:59:59' AND  f.fk_statut > 0 AND f.entity = 1 AND (f.fk_statut <> 3 OR f.close_code <> 'replaced') AND f.type IN (0,1,2,3,5) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::getNbByMonthWithPrevYear save cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getNbByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache onto disk.
+2019-03-18 17:20:26 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::getAmountByMonthWithPrevYear cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAmountByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache is not found or older than now - cachedelay (1552926026 - 86400) so we can't use it.
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::_getAmountByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(datef,'%m') as dm, SUM(f.total) FROM llx_facture as f WHERE f.datef BETWEEN '2018-01-01 00:00:00' AND '2018-12-31 23:59:59' AND  f.fk_statut > 0 AND f.entity = 1 AND (f.fk_statut <> 3 OR f.close_code <> 'replaced') AND f.type IN (0,1,2,3,5) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::_getAmountByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(datef,'%m') as dm, SUM(f.total) FROM llx_facture as f WHERE f.datef BETWEEN '2019-01-01 00:00:00' AND '2019-12-31 23:59:59' AND  f.fk_statut > 0 AND f.entity = 1 AND (f.fk_statut <> 3 OR f.close_code <> 'replaced') AND f.type IN (0,1,2,3,5) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::getAmountByMonthWithPrevYear save cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAmountByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache onto disk.
+2019-03-18 17:20:26 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:20:26 DEBUG   ::1             box_graph_invoices_permonth::showBox
+2019-03-18 17:20:26 DEBUG   ::1             box_comptes::loadBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT b.rowid, b.ref, b.label, b.bank,b.number, b.courant, b.clos, b.rappro, b.url, b.code_banque, b.code_guichet, b.cle_rib, b.bic, b.iban_prefix as iban, b.domiciliation, b.proprio, b.owner_address, b.account_number, b.currency_code, b.min_allowed, b.min_desired, comment, b.fk_accountancy_journal, aj.code as accountancy_journal FROM llx_bank_account as b LEFT JOIN llx_accounting_journal as aj ON aj.rowid=b.fk_accountancy_journal WHERE b.entity = 1 AND clos = 0 ORDER BY label LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_comptes::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT p.rowid, p.label, p.ref, p.price, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.fk_price_expression, p.entity FROM llx_product as p WHERE p.entity IN (1) ORDER BY p.datec DESC LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_produits::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT p.rowid, p.label, p.price, p.ref, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.seuil_stock_alerte, p.entity, SUM(IF(s.reel IS NULL,0,s.reel)) as total_stock FROM llx_product as p LEFT JOIN llx_product_stock as s on p.rowid = s.fk_product WHERE p.entity IN (1) AND p.tosell = 1 AND p.seuil_stock_alerte > 0 GROUP BY p.rowid, p.ref, p.label, p.price, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.seuil_stock_alerte, p.entity HAVING SUM(IF(s.reel IS NULL,0,s.reel)) < p.seuil_stock_alerte ORDER BY p.seuil_stock_alerte DESC LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_produits_alerte_stock::showBox
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::getAllByProductEntry cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAllByProductEntry_customer_fr_FR_entity.1_user1.cache is not found or older than now - cachedelay (1552926026 - 86400) so we can't use it.
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::_getAllByProduct
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT product.ref, COUNT(product.ref) as nb, SUM(tl.total_ht) as total, AVG(tl.total_ht) as avg FROM llx_facture as f, llx_facturedet as tl, llx_product as product WHERE  f.fk_statut > 0 AND f.entity = 1 AND (f.fk_statut <> 3 OR f.close_code <> 'replaced') AND f.type IN (0,1,2,3,5) AND f.rowid = tl.fk_facture AND tl.fk_product = product.rowid AND f.datef BETWEEN '2019-01-01 00:00:00' AND '2019-12-31 23:59:59' GROUP BY product.ref ORDER BY nb DESC
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::getAllByProductEntry save cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAllByProductEntry_customer_fr_FR_entity.1_user1.cache onto disk.
+2019-03-18 17:20:26 DEBUG   ::1             DolGraph::draw_jflot this->type=pie this->MaxValue=2
+2019-03-18 17:20:26 DEBUG   ::1             PropaleStats::getAllByProductEntry cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getAllByProductEntry_fr_FR_entity.1_user1.cache is not found or older than now - cachedelay (1552926026 - 86400) so we can't use it.
+2019-03-18 17:20:26 DEBUG   ::1             PropaleStats::_getAllByProduct
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT product.ref, COUNT(product.ref) as nb, SUM(tl.total_ht) as total, AVG(tl.total_ht) as avg FROM llx_propal as p, llx_propaldet as tl, llx_product as product WHERE  p.fk_statut > 0 AND p.entity IN (1) AND p.rowid = tl.fk_propal AND tl.fk_product = product.rowid AND p.datep BETWEEN '2019-01-01 00:00:00' AND '2019-12-31 23:59:59' GROUP BY product.ref ORDER BY nb DESC
+2019-03-18 17:20:26 DEBUG   ::1             PropaleStats::getAllByProductEntry save cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getAllByProductEntry_fr_FR_entity.1_user1.cache onto disk.
+2019-03-18 17:20:26 DEBUG   ::1             DolGraph::draw_jflot this->type=pie this->MaxValue=2
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::getAllByProductEntry cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAllByProductEntry_customer_fr_FR_entity.1_user1.cache is not found or older than now - cachedelay (1552926026 - 86400) so we can't use it.
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::_getAllByProduct
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT product.ref, COUNT(product.ref) as nb, SUM(tl.total_ht) as total, AVG(tl.total_ht) as avg FROM llx_commande as c, llx_commandedet as tl, llx_product as product WHERE  c.fk_statut > 0 AND c.entity IN (1) AND c.rowid = tl.fk_commande AND tl.fk_product = product.rowid AND c.date_commande BETWEEN '2019-01-01 00:00:00' AND '2019-12-31 23:59:59' GROUP BY product.ref ORDER BY nb DESC
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::getAllByProductEntry save cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAllByProductEntry_customer_fr_FR_entity.1_user1.cache onto disk.
+2019-03-18 17:20:26 DEBUG   ::1             DolGraph::draw_jflot this->type=pie this->MaxValue=2
+2019-03-18 17:20:26 DEBUG   ::1             box_graph_product_distribution::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.email, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta, s.code_compta_fournisseur, c.rowid, c.ref, c.statut as contract_status, c.ref_customer, c.ref_supplier, cd.rowid as cdid, cd.label, cd.description, cd.tms as datem, cd.statut, cd.product_type as type, p.rowid as product_id, p.ref as product_ref, p.label as plabel, p.fk_product_type as ptype, p.entity FROM (llx_societe as s INNER JOIN llx_contrat as c ON s.rowid = c.fk_soc INNER JOIN llx_contratdet as cd ON c.rowid = cd.fk_contrat LEFT JOIN llx_product as p ON cd.fk_product = p.rowid) WHERE c.entity = 1 ORDER BY c.tms DESC LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_services_contracts::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.title, p.fk_statut, p.public FROM llx_projet as p WHERE p.entity IN (1) AND p.fk_statut = 1 ORDER BY p.datec DESC
+2019-03-18 17:20:26 DEBUG   ::1             box_project::showBox
+2019-03-18 17:20:26 DEBUG   ::1             Box_actions::loadBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT a.id, a.label, a.datep as dp, a.percent as percentage, ta.code, ta.libelle as type_label, s.nom as name, s.rowid as socid, s.code_client FROM (llx_c_actioncomm AS ta, llx_actioncomm AS a) LEFT JOIN llx_societe as s ON a.fk_soc = s.rowid WHERE a.fk_action = ta.id AND a.entity = 1 AND a.percent >= 0 AND a.percent < 100 ORDER BY a.datec DESC LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_actions::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.datec, s.tms, s.status, s.code_fournisseur, s.logo FROM llx_societe as s WHERE s.fournisseur = 1 AND s.entity IN (1) ORDER BY s.tms DESC  LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_fournisseurs::showBox
+2019-03-18 17:20:26 DEBUG   ::1             ModeleBoxes::showBox
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::getNbByMonthWithPrevYear cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getNbByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache is not found or older than now - cachedelay (1552926026 - 86400) so we can't use it.
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::_getNbByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(c.date_commande,'%m') as dm, COUNT(*) as nb FROM llx_commande_fournisseur as c WHERE c.date_commande BETWEEN '2018-01-01 00:00:00' AND '2018-12-31 23:59:59' AND  c.fk_statut > 2 AND c.entity IN (1) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::_getNbByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(c.date_commande,'%m') as dm, COUNT(*) as nb FROM llx_commande_fournisseur as c WHERE c.date_commande BETWEEN '2019-01-01 00:00:00' AND '2019-12-31 23:59:59' AND  c.fk_statut > 2 AND c.entity IN (1) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::getNbByMonthWithPrevYear save cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getNbByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache onto disk.
+2019-03-18 17:20:26 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::getAmountByMonthWithPrevYear cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAmountByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache is not found or older than now - cachedelay (1552926026 - 86400) so we can't use it.
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::_getAmountByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(c.date_commande,'%m') as dm, SUM(c.total_ht) FROM llx_commande_fournisseur as c WHERE c.date_commande BETWEEN '2018-01-01 00:00:00' AND '2018-12-31 23:59:59' AND  c.fk_statut > 2 AND c.entity IN (1) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::_getAmountByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(c.date_commande,'%m') as dm, SUM(c.total_ht) FROM llx_commande_fournisseur as c WHERE c.date_commande BETWEEN '2019-01-01 00:00:00' AND '2019-12-31 23:59:59' AND  c.fk_statut > 2 AND c.entity IN (1) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::getAmountByMonthWithPrevYear save cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAmountByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache onto disk.
+2019-03-18 17:20:26 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:20:26 DEBUG   ::1             box_graph_orders_supplier_permonth::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT a.rowid, a.lastname, a.firstname, a.societe as company, a.fk_soc, a.datec, a.tms, a.statut as status, a.datefin as date_end_subscription, t.subscription FROM llx_adherent as a, llx_adherent_type as t WHERE a.entity IN (1) AND a.fk_adherent_type = t.rowid ORDER BY a.tms DESC LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_members::showBox
+2019-03-18 17:20:26 DEBUG   ::1             box_clients::loadBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.client, s.code_fournisseur, s.fournisseur, s.code_compta, s.code_compta_fournisseur, s.logo, s.email, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (1, 3) AND s.entity IN (1) ORDER BY s.tms DESC LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_clients::showBox
+2019-03-18 17:20:26 DEBUG   ::1             box_prospect::loadBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.client, s.code_fournisseur, s.fournisseur, s.logo, s.fk_stcomm, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (2, 3) AND s.entity IN (1) ORDER BY s.tms DESC LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_prospect::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT sp.rowid as id, sp.lastname, sp.firstname, sp.civility as civility_id, sp.datec, sp.tms, sp.fk_soc, sp.statut as status, sp.address, sp.zip, sp.town, sp.phone, sp.phone_perso, sp.phone_mobile, s.nom as socname, s.name_alias, s.client, s.fournisseur, s.code_client, s.code_fournisseur FROM llx_socpeople as sp LEFT JOIN llx_societe as s ON sp.fk_soc = s.rowid WHERE sp.entity IN (1) ORDER BY sp.tms DESC LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_contacts::showBox
+2019-03-18 17:20:26 DEBUG   ::1             PropaleStats::getNbByMonthWithPrevYear cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getNbByMonthWithPrevYear_fr_FR_entity.1_user1.cache is not found or older than now - cachedelay (1552926026 - 86400) so we can't use it.
+2019-03-18 17:20:26 DEBUG   ::1             PropaleStats::_getNbByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(p.datep,'%m') as dm, COUNT(*) as nb FROM llx_propal as p WHERE p.datep BETWEEN '2018-01-01 00:00:00' AND '2018-12-31 23:59:59' AND  p.fk_statut > 0 AND p.entity IN (1) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             PropaleStats::_getNbByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(p.datep,'%m') as dm, COUNT(*) as nb FROM llx_propal as p WHERE p.datep BETWEEN '2019-01-01 00:00:00' AND '2019-12-31 23:59:59' AND  p.fk_statut > 0 AND p.entity IN (1) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             PropaleStats::getNbByMonthWithPrevYear save cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getNbByMonthWithPrevYear_fr_FR_entity.1_user1.cache onto disk.
+2019-03-18 17:20:26 DEBUG   ::1             DolGraph::draw_jflot this->type=bars,bars this->MaxValue=0
+2019-03-18 17:20:26 DEBUG   ::1             PropaleStats::getAmountByMonthWithPrevYear cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getAmountByMonthWithPrevYear_fr_FR_entity.1_user1.cache is not found or older than now - cachedelay (1552926026 - 86400) so we can't use it.
+2019-03-18 17:20:26 DEBUG   ::1             PropaleStats::_getAmountByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(p.datep,'%m') as dm, SUM(p.total_ht) FROM llx_propal as p WHERE p.datep BETWEEN '2018-01-01 00:00:00' AND '2018-12-31 23:59:59' AND  p.fk_statut > 0 AND p.entity IN (1) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             PropaleStats::_getAmountByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(p.datep,'%m') as dm, SUM(p.total_ht) FROM llx_propal as p WHERE p.datep BETWEEN '2019-01-01 00:00:00' AND '2019-12-31 23:59:59' AND  p.fk_statut > 0 AND p.entity IN (1) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             PropaleStats::getAmountByMonthWithPrevYear save cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getAmountByMonthWithPrevYear_fr_FR_entity.1_user1.cache onto disk.
+2019-03-18 17:20:26 DEBUG   ::1             DolGraph::draw_jflot this->type=bars,bars this->MaxValue=0
+2019-03-18 17:20:26 DEBUG   ::1             box_graph_propales_permonth::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.logo, p.rowid, p.ref, p.fk_statut, p.datep as dp, p.datec, p.fin_validite, p.date_cloture, p.total_ht, p.tva as total_tva, p.total as total_ttc, p.tms FROM llx_societe as s, llx_propal as p WHERE p.fk_soc = s.rowid AND p.entity = 1 ORDER BY p.tms DESC, p.ref DESC  LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_propales::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.logo, c.ref, c.tms, c.rowid, c.date_commande, c.ref_client, c.fk_statut, c.fk_user_valid, c.facture, c.total_ht, c.tva as total_tva, c.total_ttc FROM llx_societe as s, llx_commande as c WHERE c.fk_soc = s.rowid AND c.entity = 1 ORDER BY c.tms DESC, c.ref DESC  LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_commandes::showBox
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::getNbByMonthWithPrevYear cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getNbByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache is not found or older than now - cachedelay (1552926026 - 86400) so we can't use it.
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::_getNbByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(c.date_commande,'%m') as dm, COUNT(*) as nb FROM llx_commande as c WHERE c.date_commande BETWEEN '2018-01-01 00:00:00' AND '2018-12-31 23:59:59' AND  c.fk_statut > 0 AND c.entity IN (1) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::_getNbByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(c.date_commande,'%m') as dm, COUNT(*) as nb FROM llx_commande as c WHERE c.date_commande BETWEEN '2019-01-01 00:00:00' AND '2019-12-31 23:59:59' AND  c.fk_statut > 0 AND c.entity IN (1) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::getNbByMonthWithPrevYear save cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getNbByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache onto disk.
+2019-03-18 17:20:26 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::getAmountByMonthWithPrevYear cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAmountByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache is not found or older than now - cachedelay (1552926026 - 86400) so we can't use it.
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::_getAmountByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(c.date_commande,'%m') as dm, SUM(c.total_ht) FROM llx_commande as c WHERE c.date_commande BETWEEN '2018-01-01 00:00:00' AND '2018-12-31 23:59:59' AND  c.fk_statut > 0 AND c.entity IN (1) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::_getAmountByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(c.date_commande,'%m') as dm, SUM(c.total_ht) FROM llx_commande as c WHERE c.date_commande BETWEEN '2019-01-01 00:00:00' AND '2019-12-31 23:59:59' AND  c.fk_statut > 0 AND c.entity IN (1) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             CommandeStats::getAmountByMonthWithPrevYear save cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAmountByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache onto disk.
+2019-03-18 17:20:26 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:20:26 DEBUG   ::1             box_graph_orders_permonth::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.email, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta, s.code_compta_fournisseur, c.rowid, c.ref, c.statut as fk_statut, c.date_contrat, c.datec, c.fin_validite, c.date_cloture FROM llx_societe as s, llx_contrat as c WHERE c.fk_soc = s.rowid AND c.entity = 1 ORDER BY c.tms DESC, c.ref DESC  LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_contracts::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT  c.rowid, c.ref, c.statut as fk_statut, c.date_contrat, c.ref_customer, c.ref_supplier, s.nom as name, s.rowid as socid, s.email, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta, s.code_compta_fournisseur, MIN(cd.date_fin_validite) as date_line, COUNT(cd.rowid) as nb_services FROM llx_contrat as c, llx_societe s, llx_contratdet as cd WHERE cd.statut = 4 AND cd.date_fin_validite <= '2019-03-18 17:20:26' AND c.entity = 1 AND c.fk_soc=s.rowid AND cd.fk_contrat=c.rowid AND c.statut > 0 GROUP BY c.rowid, c.ref, c.statut, c.date_contrat, c.ref_customer, c.ref_supplier, s.nom, s.rowid ORDER BY date_line ASC LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_services_expired::showBox
+2019-03-18 17:20:26 DEBUG   ::1             box_ficheinter::loadBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT f.rowid, f.ref, f.fk_soc, f.fk_statut, f.datec, f.date_valid as datev, f.tms as datem, s.nom as name, s.rowid as socid, s.client FROM llx_societe as s, llx_fichinter as f WHERE f.fk_soc = s.rowid  AND f.entity = 1 ORDER BY f.tms DESC LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_ficheinter::showBox
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::getNbByMonthWithPrevYear cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getNbByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache is not found or older than now - cachedelay (1552926026 - 86400) so we can't use it.
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::_getNbByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(f.datef,'%m') as dm, COUNT(*) as nb FROM llx_facture_fourn as f WHERE f.datef BETWEEN '2018-01-01 00:00:00' AND '2018-12-31 23:59:59' AND  f.fk_statut > 0 AND f.entity = 1 AND f.type IN (0,1,2,3,5) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::_getNbByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(f.datef,'%m') as dm, COUNT(*) as nb FROM llx_facture_fourn as f WHERE f.datef BETWEEN '2019-01-01 00:00:00' AND '2019-12-31 23:59:59' AND  f.fk_statut > 0 AND f.entity = 1 AND f.type IN (0,1,2,3,5) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::getNbByMonthWithPrevYear save cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getNbByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache onto disk.
+2019-03-18 17:20:26 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::getAmountByMonthWithPrevYear cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAmountByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache is not found or older than now - cachedelay (1552926026 - 86400) so we can't use it.
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::_getAmountByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(datef,'%m') as dm, SUM(f.total_ht) FROM llx_facture_fourn as f WHERE f.datef BETWEEN '2018-01-01 00:00:00' AND '2018-12-31 23:59:59' AND  f.fk_statut > 0 AND f.entity = 1 AND f.type IN (0,1,2,3,5) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::_getAmountByMonth
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT date_format(datef,'%m') as dm, SUM(f.total_ht) FROM llx_facture_fourn as f WHERE f.datef BETWEEN '2019-01-01 00:00:00' AND '2019-12-31 23:59:59' AND  f.fk_statut > 0 AND f.entity = 1 AND f.type IN (0,1,2,3,5) GROUP BY dm ORDER BY dm DESC
+2019-03-18 17:20:26 DEBUG   ::1             FactureStats::getAmountByMonthWithPrevYear save cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAmountByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache onto disk.
+2019-03-18 17:20:26 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:20:26 DEBUG   ::1             box_graph_invoices_supplier_permonth::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT b.title, b.url, b.target, b.favicon FROM llx_bookmark as b WHERE fk_user = 1 AND b.entity = 1 ORDER BY position ASC LIMIT 5
+2019-03-18 17:20:26 DEBUG   ::1             box_bookmarks::showBox
+2019-03-18 17:20:26 DEBUG   ::1             ModeleBoxes::showBox
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(u.rowid) as nb FROM llx_user as u WHERE u.statut > 0 AND u.entity IN (0,1)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(s.rowid) as nb, s.client FROM llx_societe as s WHERE s.client IN (1,2,3) AND s.entity IN (1) GROUP BY s.client
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(s.rowid) as nb FROM llx_societe as s WHERE s.fournisseur = 1 AND s.entity IN (1)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(sp.rowid) as nb FROM llx_socpeople as sp WHERE sp.entity IN (1) AND (sp.priv='0' OR (sp.priv='1' AND sp.fk_user_creat=1))
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(a.rowid) as nb FROM llx_adherent as a WHERE a.statut > 0 AND a.entity IN (1)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(p.rowid) as nb, fk_product_type FROM llx_product as p WHERE p.entity IN (1) GROUP BY fk_product_type
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(p.rowid) as nb FROM llx_propal as p LEFT JOIN llx_societe as s ON p.fk_soc = s.rowid WHERE p.entity IN (1)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(co.rowid) as nb FROM llx_commande as co LEFT JOIN llx_societe as s ON co.fk_soc = s.rowid WHERE co.entity IN (1)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(f.rowid) as nb FROM llx_facture as f LEFT JOIN llx_societe as s ON f.fk_soc = s.rowid WHERE f.entity = 1
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(c.rowid) as nb FROM llx_contrat as c LEFT JOIN llx_societe as s ON c.fk_soc = s.rowid WHERE c.entity = 1
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(fi.rowid) as nb FROM llx_fichinter as fi LEFT JOIN llx_societe as s ON fi.fk_soc = s.rowid WHERE fi.entity IN (1)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(co.rowid) as nb FROM llx_commande_fournisseur as co LEFT JOIN llx_societe as s ON co.fk_soc = s.rowid WHERE co.entity = 1
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(f.rowid) as nb FROM llx_facture_fourn as f LEFT JOIN llx_societe as s ON f.fk_soc = s.rowid WHERE f.entity = 1
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(p.rowid) as nb FROM llx_supplier_proposal as p LEFT JOIN llx_societe as s ON p.fk_soc = s.rowid WHERE p.entity IN (1)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(p.rowid) as nb FROM llx_projet as p WHERE p.entity IN (1)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(ex.rowid) as nb FROM llx_expensereport as ex WHERE ex.fk_statut > 0 AND ex.entity IN (1)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT count(d.rowid) as nb FROM llx_don as d WHERE d.fk_statut > 0 AND d.entity IN (1)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT a.id, a.datep as dp FROM (llx_actioncomm as a) LEFT JOIN llx_societe as s ON a.fk_soc = s.rowid WHERE 1 = 1 AND a.percent >= 0 AND a.percent < 100 AND a.entity IN (1)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT p.rowid, p.fk_statut as status, p.fk_opp_status, p.datee as datee FROM (llx_projet as p) LEFT JOIN llx_societe as s on p.fk_soc = s.rowid WHERE p.fk_statut = 1 AND p.entity IN (1)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT ctc.rowid, ctc.code FROM llx_c_type_contact as ctc WHERE ctc.element = 'project' AND ctc.source = 'internal'
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT DISTINCT p.rowid, p.ref FROM llx_projet as p, llx_element_contact as ec WHERE p.entity IN (1) AND ec.element_id = p.rowid AND ( p.public = 1 OR ( ec.fk_c_type_contact IN (161,160) AND ec.fk_socpeople = 1) )
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT p.rowid as projectid, p.fk_statut as projectstatus, t.rowid as taskid, t.progress as progress, t.fk_statut as status, t.dateo as date_start, t.datee as datee FROM llx_projet as p LEFT JOIN llx_societe as s on p.fk_soc = s.rowid, llx_projet_task as t WHERE p.entity IN (1) AND p.fk_statut = 1 AND t.fk_projet = p.rowid AND t.progress < 100
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec, p.fin_validite as datefin, p.total_ht FROM llx_propal as p WHERE p.entity IN (1) AND p.fk_statut = 1
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec, p.fin_validite as datefin, p.total_ht FROM llx_propal as p WHERE p.entity IN (1) AND p.fk_statut = 2
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec FROM llx_supplier_proposal as p WHERE p.entity IN (1) AND p.fk_statut = 1
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec FROM llx_supplier_proposal as p WHERE p.entity IN (1) AND p.fk_statut = 2
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT c.rowid, c.date_creation as datec, c.date_commande, c.date_livraison as delivery_date, c.fk_statut, c.total_ht FROM llx_commande as c WHERE c.entity IN (1) AND ((c.fk_statut IN (1,2)) OR (c.fk_statut = 3 AND c.facture = 0))
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT c.rowid, c.date_creation as datec, c.date_commande, c.fk_statut, c.date_livraison as delivery_date FROM llx_commande_fournisseur as c WHERE c.entity = 1 AND c.fk_statut IN (1, 2)
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT cd.rowid, cd.date_ouverture_prevue as datefin FROM llx_contrat as c, llx_contratdet as cd, llx_societe as s WHERE c.statut = 1 AND c.rowid = cd.fk_contrat AND cd.statut = 0 AND c.fk_soc = s.rowid AND c.entity = 1
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT cd.rowid, cd.date_fin_validite as datefin FROM llx_contrat as c, llx_contratdet as cd, llx_societe as s WHERE c.statut = 1 AND c.rowid = cd.fk_contrat AND cd.statut = 4 AND cd.date_fin_validite < '2019-03-18 17:20:26' AND c.fk_soc = s.rowid AND c.entity = 1
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT f.rowid, f.date_lim_reglement as datefin,f.fk_statut, f.total FROM llx_facture as f WHERE f.paye=0 AND f.entity = 1 AND f.fk_statut = 1
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT ff.rowid, ff.date_lim_reglement as datefin, ff.fk_statut FROM llx_facture_fourn as ff WHERE ff.paye=0 AND ff.fk_statut > 0 AND ff.entity = 1
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT COUNT(ba.rowid) as nb FROM llx_bank_account as ba WHERE ba.rappro > 0 and ba.clos = 0 AND ba.entity IN (1) AND ba.courant != 2
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT b.rowid, b.datev as datefin FROM llx_bank as b, llx_bank_account as ba WHERE b.fk_account = ba.rowid AND ba.entity IN (1) AND b.fk_type = 'CHQ' AND b.fk_bordereau = 0 AND b.amount > 0
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT a.rowid, a.datefin, a.statut FROM llx_adherent as a WHERE a.statut = 1 AND a.entity IN (1) AND (a.datefin IS NULL or a.datefin < '2019-03-18 17:20:26')
+2019-03-18 17:20:26 DEBUG   ::1             User::loadParentOf
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT fk_user as id_parent, rowid as id_son FROM llx_user WHERE fk_user <> 0 AND entity IN (0,1)
+2019-03-18 17:20:26 DEBUG   ::1             User::get_full_tree get user list
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT DISTINCT u.rowid, u.firstname, u.lastname, u.fk_user, u.fk_soc, u.login, u.email, u.gender, u.admin, u.statut, u.photo, u.entity FROM llx_user as u WHERE u.entity IN (0,1)
+2019-03-18 17:20:26 DEBUG   ::1             User::get_full_tree call to build_path_from_id_user
+2019-03-18 17:20:26 DEBUG   ::1             User::build_path_from_id_user id_user=1 protection=0
+2019-03-18 17:20:26 DEBUG   ::1             User::get_full_tree dol_sort_array
+2019-03-18 17:20:26 DEBUG   ::1             Build childid for id = 1
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT ex.rowid, ex.date_valid FROM llx_expensereport as ex WHERE ex.fk_statut = 2 AND ex.entity IN (1) AND (ex.fk_user_author IN (1) OR ex.fk_user_validator IN (1))
+2019-03-18 17:20:26 DEBUG   ::1             sql=SELECT ex.rowid, ex.date_valid FROM llx_expensereport as ex WHERE ex.fk_statut = 5 AND ex.entity IN (1) AND (ex.fk_user_author IN (1) OR ex.fk_user_validator IN (1))
+2019-03-18 17:20:26 DEBUG   ::1             --- End access to /index.php
+2019-03-18 17:23:13 DEBUG   ::1             - This is an already logged session. _SESSION['dol_login']=airblio _SESSION['dol_entity']=1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT u.rowid, u.lastname, u.firstname, u.employee, u.gender, u.birth, u.email, u.job, u.skype, u.twitter, u.facebook, u.signature, u.office_phone, u.office_fax, u.user_mobile, u.address, u.zip, u.town, u.fk_state as state_id, u.fk_country as country_id, u.admin, u.login, u.note, u.pass, u.pass_crypted, u.pass_temp, u.api_key, u.fk_soc, u.fk_socpeople, u.fk_member, u.fk_user, u.ldap_sid, u.statut, u.lang, u.entity, u.datec as datec, u.tms as datem, u.datelastlogin as datel, u.datepreviouslogin as datep, u.photo as photo, u.openid as openid, u.accountancy_code, u.thm, u.tjm, u.salary, u.salaryextra, u.weeklyhours, u.color, u.dateemployment, u.dateemploymentend, u.ref_int, u.ref_ext, u.default_range, u.default_c_exp_tax_cat, c.code as country_code, c.label as country, d.code_departement as state_code, d.nom as state FROM llx_user as u LEFT JOIN llx_c_country as c ON u.fk_country = c.rowid LEFT JOIN llx_c_departements as d ON u.fk_state = d.rowid WHERE u.entity IN (0, 1) AND u.login = 'airblio' ORDER BY u.entity ASC
+2019-03-18 17:23:13 DEBUG   ::1             fetch_name_optionals_label elementtype=user
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT rowid,name,label,type,size,elementtype,fieldunique,fieldrequired,param,pos,alwayseditable,perms,langs,list,totalizable,fielddefault,fieldcomputed,entity,enabled,help FROM llx_extrafields WHERE entity IN (0,1) AND elementtype = 'user' ORDER BY pos
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT param, value FROM llx_user_param WHERE fk_user = 1 AND entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT rowid, entity, type, page, param, value FROM llx_default_values WHERE entity IN (1) AND user_id IN (0, 1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT DISTINCT r.module, r.perms, r.subperms FROM llx_user_rights as ur, llx_rights_def as r WHERE r.id = ur.fk_id AND ur.entity = 1 AND ur.fk_user= 1 AND r.perms IS NOT NULL
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT DISTINCT r.module, r.perms, r.subperms FROM llx_usergroup_rights as gr, llx_usergroup_user as gu, llx_rights_def as r WHERE r.id = gr.fk_id AND gr.entity = 1 AND r.entity = 1 AND gr.fk_usergroup = gu.fk_usergroup AND gu.fk_user = 1 AND r.perms IS NOT NULL
+2019-03-18 17:23:13 DEBUG   ::1             --- Access to /index.php - action=, massaction=
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT transkey, transvalue FROM llx_overwrite_trans where lang='fr_FR'
+2019-03-18 17:23:13 DEBUG   ::1             Menubase::menuLoad mymainmenu=home myleftmenu=home type_user=0 menu_handler=eldy tabMenu size=0
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT m.rowid, m.type, m.module, m.fk_menu, m.fk_mainmenu, m.fk_leftmenu, m.url, m.titre, m.langs, m.perms, m.enabled, m.target, m.mainmenu, m.leftmenu, m.position FROM llx_menu as m WHERE m.entity IN (0,1) AND m.menu_handler IN ('eldy','all') AND m.usertype IN (0,2) ORDER BY m.position, m.rowid
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT rowid, title, url, target FROM llx_bookmark WHERE (fk_user = 1 OR fk_user is NULL OR fk_user = 0) AND entity IN (1) ORDER BY position
+2019-03-18 17:23:13 DEBUG   ::1             InfoBox::listBoxes get default box list for mode=activated userid=
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT b.rowid, b.position, b.box_order, b.fk_user, d.rowid as box_id, d.file, d.note, d.tms FROM llx_boxes as b, llx_boxes_def as d WHERE b.box_id = d.rowid AND b.entity IN (0,1) AND b.position = 0 AND b.fk_user = 0 ORDER BY b.box_order
+2019-03-18 17:23:13 DEBUG   ::1             box_lastlogin::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, f.rowid as facid, f.ref, f.ref_supplier, f.date_lim_reglement as datelimite, f.amount, f.datef as df, f.total_ht as total_ht, f.tva as total_tva, f.total_ttc, f.paye, f.fk_statut, f.type FROM llx_societe as s,llx_facture_fourn as f WHERE f.fk_soc = s.rowid AND f.entity = 1 AND f.paye=0 AND fk_statut = 1 ORDER BY datelimite DESC, f.ref_supplier DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_factures_fourn_imp::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_fournisseur, s.logo, f.rowid as facid, f.ref, f.ref_supplier, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut, f.datef as df, f.datec as datec, f.date_lim_reglement as datelimite, f.tms, f.type FROM llx_societe as s, llx_facture_fourn as f WHERE f.fk_soc = s.rowid AND f.entity = 1 ORDER BY f.tms DESC, f.ref DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_factures_fourn::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.code_fournisseur, s.logo, c.rowid, c.ref, c.tms, c.date_commande, c.total_ht, c.tva as total_tva, c.total_ttc, c.fk_statut FROM llx_societe as s, llx_commande_fournisseur as c WHERE c.fk_soc = s.rowid AND c.entity = 1 ORDER BY c.tms DESC, c.ref DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_supplier_orders::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.email, s.code_client, s.logo, f.facnumber, f.date_lim_reglement as datelimite, f.type, f.amount, f.datef as df, f.total as total_ht, f.tva as total_tva, f.total_ttc, f.paye, f.fk_statut, f.rowid as facid, sum(pf.amount) as am FROM llx_societe as s, llx_facture as f LEFT JOIN llx_paiement_facture as pf ON f.rowid=pf.fk_facture  WHERE f.fk_soc = s.rowid AND f.entity = 1 AND f.paye = 0 AND fk_statut = 1 GROUP BY s.nom, s.rowid, s.code_client, s.logo, f.facnumber, f.date_lim_reglement, f.type, f.amount, f.datef, f.total, f.tva, f.total_ttc, f.paye, f.fk_statut, f.rowid ORDER BY datelimite ASC, f.facnumber ASC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_factures_imp::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT f.rowid as facid, f.facnumber, f.type, f.total as total_ht, f.tva as total_tva, f.total_ttc, f.datef as df, f.paye, f.fk_statut, f.datec, f.tms, s.rowid as socid, s.nom as name, s.code_client, s.email, s.tva_intra, s.code_compta, s.siren as idprof1, s.siret as idprof2, s.ape as idprof3, s.idprof4, s.idprof5, s.idprof6, f.date_lim_reglement as datelimite FROM (llx_societe as s,llx_facture as f) WHERE f.fk_soc = s.rowid AND f.entity = 1 ORDER BY f.tms DESC, f.facnumber DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_factures::showBox
+2019-03-18 17:23:13 DEBUG   ::1             FactureStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getNbByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             FactureStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAmountByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             box_graph_invoices_permonth::showBox
+2019-03-18 17:23:13 DEBUG   ::1             box_comptes::loadBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT b.rowid, b.ref, b.label, b.bank,b.number, b.courant, b.clos, b.rappro, b.url, b.code_banque, b.code_guichet, b.cle_rib, b.bic, b.iban_prefix as iban, b.domiciliation, b.proprio, b.owner_address, b.account_number, b.currency_code, b.min_allowed, b.min_desired, comment, b.fk_accountancy_journal, aj.code as accountancy_journal FROM llx_bank_account as b LEFT JOIN llx_accounting_journal as aj ON aj.rowid=b.fk_accountancy_journal WHERE b.entity = 1 AND clos = 0 ORDER BY label LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_comptes::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.label, p.ref, p.price, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.fk_price_expression, p.entity FROM llx_product as p WHERE p.entity IN (1) ORDER BY p.datec DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_produits::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.label, p.price, p.ref, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.seuil_stock_alerte, p.entity, SUM(IF(s.reel IS NULL,0,s.reel)) as total_stock FROM llx_product as p LEFT JOIN llx_product_stock as s on p.rowid = s.fk_product WHERE p.entity IN (1) AND p.tosell = 1 AND p.seuil_stock_alerte > 0 GROUP BY p.rowid, p.ref, p.label, p.price, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.seuil_stock_alerte, p.entity HAVING SUM(IF(s.reel IS NULL,0,s.reel)) < p.seuil_stock_alerte ORDER BY p.seuil_stock_alerte DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_produits_alerte_stock::showBox
+2019-03-18 17:23:13 DEBUG   ::1             FactureStats::getAllByProductEntry read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAllByProductEntry_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type=pie this->MaxValue=2
+2019-03-18 17:23:13 DEBUG   ::1             PropaleStats::getAllByProductEntry read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getAllByProductEntry_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type=pie this->MaxValue=2
+2019-03-18 17:23:13 DEBUG   ::1             CommandeStats::getAllByProductEntry read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAllByProductEntry_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type=pie this->MaxValue=2
+2019-03-18 17:23:13 DEBUG   ::1             box_graph_product_distribution::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.email, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta, s.code_compta_fournisseur, c.rowid, c.ref, c.statut as contract_status, c.ref_customer, c.ref_supplier, cd.rowid as cdid, cd.label, cd.description, cd.tms as datem, cd.statut, cd.product_type as type, p.rowid as product_id, p.ref as product_ref, p.label as plabel, p.fk_product_type as ptype, p.entity FROM (llx_societe as s INNER JOIN llx_contrat as c ON s.rowid = c.fk_soc INNER JOIN llx_contratdet as cd ON c.rowid = cd.fk_contrat LEFT JOIN llx_product as p ON cd.fk_product = p.rowid) WHERE c.entity = 1 ORDER BY c.tms DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_services_contracts::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.title, p.fk_statut, p.public FROM llx_projet as p WHERE p.entity IN (1) AND p.fk_statut = 1 ORDER BY p.datec DESC
+2019-03-18 17:23:13 DEBUG   ::1             box_project::showBox
+2019-03-18 17:23:13 DEBUG   ::1             Box_actions::loadBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT a.id, a.label, a.datep as dp, a.percent as percentage, ta.code, ta.libelle as type_label, s.nom as name, s.rowid as socid, s.code_client FROM (llx_c_actioncomm AS ta, llx_actioncomm AS a) LEFT JOIN llx_societe as s ON a.fk_soc = s.rowid WHERE a.fk_action = ta.id AND a.entity = 1 AND a.percent >= 0 AND a.percent < 100 ORDER BY a.datec DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_actions::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.datec, s.tms, s.status, s.code_fournisseur, s.logo FROM llx_societe as s WHERE s.fournisseur = 1 AND s.entity IN (1) ORDER BY s.tms DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_fournisseurs::showBox
+2019-03-18 17:23:13 DEBUG   ::1             ModeleBoxes::showBox
+2019-03-18 17:23:13 DEBUG   ::1             CommandeStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getNbByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             CommandeStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAmountByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             box_graph_orders_supplier_permonth::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT a.rowid, a.lastname, a.firstname, a.societe as company, a.fk_soc, a.datec, a.tms, a.statut as status, a.datefin as date_end_subscription, t.subscription FROM llx_adherent as a, llx_adherent_type as t WHERE a.entity IN (1) AND a.fk_adherent_type = t.rowid ORDER BY a.tms DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_members::showBox
+2019-03-18 17:23:13 DEBUG   ::1             box_clients::loadBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.client, s.code_fournisseur, s.fournisseur, s.code_compta, s.code_compta_fournisseur, s.logo, s.email, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (1, 3) AND s.entity IN (1) ORDER BY s.tms DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_clients::showBox
+2019-03-18 17:23:13 DEBUG   ::1             box_prospect::loadBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.client, s.code_fournisseur, s.fournisseur, s.logo, s.fk_stcomm, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (2, 3) AND s.entity IN (1) ORDER BY s.tms DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_prospect::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT sp.rowid as id, sp.lastname, sp.firstname, sp.civility as civility_id, sp.datec, sp.tms, sp.fk_soc, sp.statut as status, sp.address, sp.zip, sp.town, sp.phone, sp.phone_perso, sp.phone_mobile, s.nom as socname, s.name_alias, s.client, s.fournisseur, s.code_client, s.code_fournisseur FROM llx_socpeople as sp LEFT JOIN llx_societe as s ON sp.fk_soc = s.rowid WHERE sp.entity IN (1) ORDER BY sp.tms DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_contacts::showBox
+2019-03-18 17:23:13 DEBUG   ::1             PropaleStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getNbByMonthWithPrevYear_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type=bars,bars this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             PropaleStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getAmountByMonthWithPrevYear_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type=bars,bars this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             box_graph_propales_permonth::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.logo, p.rowid, p.ref, p.fk_statut, p.datep as dp, p.datec, p.fin_validite, p.date_cloture, p.total_ht, p.tva as total_tva, p.total as total_ttc, p.tms FROM llx_societe as s, llx_propal as p WHERE p.fk_soc = s.rowid AND p.entity = 1 ORDER BY p.tms DESC, p.ref DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_propales::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.logo, c.ref, c.tms, c.rowid, c.date_commande, c.ref_client, c.fk_statut, c.fk_user_valid, c.facture, c.total_ht, c.tva as total_tva, c.total_ttc FROM llx_societe as s, llx_commande as c WHERE c.fk_soc = s.rowid AND c.entity = 1 ORDER BY c.tms DESC, c.ref DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_commandes::showBox
+2019-03-18 17:23:13 DEBUG   ::1             CommandeStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getNbByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             CommandeStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAmountByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             box_graph_orders_permonth::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.email, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta, s.code_compta_fournisseur, c.rowid, c.ref, c.statut as fk_statut, c.date_contrat, c.datec, c.fin_validite, c.date_cloture FROM llx_societe as s, llx_contrat as c WHERE c.fk_soc = s.rowid AND c.entity = 1 ORDER BY c.tms DESC, c.ref DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_contracts::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT  c.rowid, c.ref, c.statut as fk_statut, c.date_contrat, c.ref_customer, c.ref_supplier, s.nom as name, s.rowid as socid, s.email, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta, s.code_compta_fournisseur, MIN(cd.date_fin_validite) as date_line, COUNT(cd.rowid) as nb_services FROM llx_contrat as c, llx_societe s, llx_contratdet as cd WHERE cd.statut = 4 AND cd.date_fin_validite <= '2019-03-18 17:23:13' AND c.entity = 1 AND c.fk_soc=s.rowid AND cd.fk_contrat=c.rowid AND c.statut > 0 GROUP BY c.rowid, c.ref, c.statut, c.date_contrat, c.ref_customer, c.ref_supplier, s.nom, s.rowid ORDER BY date_line ASC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_services_expired::showBox
+2019-03-18 17:23:13 DEBUG   ::1             box_ficheinter::loadBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT f.rowid, f.ref, f.fk_soc, f.fk_statut, f.datec, f.date_valid as datev, f.tms as datem, s.nom as name, s.rowid as socid, s.client FROM llx_societe as s, llx_fichinter as f WHERE f.fk_soc = s.rowid  AND f.entity = 1 ORDER BY f.tms DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_ficheinter::showBox
+2019-03-18 17:23:13 DEBUG   ::1             FactureStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getNbByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             FactureStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAmountByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             box_graph_invoices_supplier_permonth::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT b.title, b.url, b.target, b.favicon FROM llx_bookmark as b WHERE fk_user = 1 AND b.entity = 1 ORDER BY position ASC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_bookmarks::showBox
+2019-03-18 17:23:13 DEBUG   ::1             ModeleBoxes::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(u.rowid) as nb FROM llx_user as u WHERE u.statut > 0 AND u.entity IN (0,1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(s.rowid) as nb, s.client FROM llx_societe as s WHERE s.client IN (1,2,3) AND s.entity IN (1) GROUP BY s.client
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(s.rowid) as nb FROM llx_societe as s WHERE s.fournisseur = 1 AND s.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(sp.rowid) as nb FROM llx_socpeople as sp WHERE sp.entity IN (1) AND (sp.priv='0' OR (sp.priv='1' AND sp.fk_user_creat=1))
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(a.rowid) as nb FROM llx_adherent as a WHERE a.statut > 0 AND a.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(p.rowid) as nb, fk_product_type FROM llx_product as p WHERE p.entity IN (1) GROUP BY fk_product_type
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(p.rowid) as nb FROM llx_propal as p LEFT JOIN llx_societe as s ON p.fk_soc = s.rowid WHERE p.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(co.rowid) as nb FROM llx_commande as co LEFT JOIN llx_societe as s ON co.fk_soc = s.rowid WHERE co.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(f.rowid) as nb FROM llx_facture as f LEFT JOIN llx_societe as s ON f.fk_soc = s.rowid WHERE f.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(c.rowid) as nb FROM llx_contrat as c LEFT JOIN llx_societe as s ON c.fk_soc = s.rowid WHERE c.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(fi.rowid) as nb FROM llx_fichinter as fi LEFT JOIN llx_societe as s ON fi.fk_soc = s.rowid WHERE fi.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(co.rowid) as nb FROM llx_commande_fournisseur as co LEFT JOIN llx_societe as s ON co.fk_soc = s.rowid WHERE co.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(f.rowid) as nb FROM llx_facture_fourn as f LEFT JOIN llx_societe as s ON f.fk_soc = s.rowid WHERE f.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(p.rowid) as nb FROM llx_supplier_proposal as p LEFT JOIN llx_societe as s ON p.fk_soc = s.rowid WHERE p.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(p.rowid) as nb FROM llx_projet as p WHERE p.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(ex.rowid) as nb FROM llx_expensereport as ex WHERE ex.fk_statut > 0 AND ex.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(d.rowid) as nb FROM llx_don as d WHERE d.fk_statut > 0 AND d.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT a.id, a.datep as dp FROM (llx_actioncomm as a) LEFT JOIN llx_societe as s ON a.fk_soc = s.rowid WHERE 1 = 1 AND a.percent >= 0 AND a.percent < 100 AND a.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.fk_statut as status, p.fk_opp_status, p.datee as datee FROM (llx_projet as p) LEFT JOIN llx_societe as s on p.fk_soc = s.rowid WHERE p.fk_statut = 1 AND p.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT ctc.rowid, ctc.code FROM llx_c_type_contact as ctc WHERE ctc.element = 'project' AND ctc.source = 'internal'
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT DISTINCT p.rowid, p.ref FROM llx_projet as p, llx_element_contact as ec WHERE p.entity IN (1) AND ec.element_id = p.rowid AND ( p.public = 1 OR ( ec.fk_c_type_contact IN (161,160) AND ec.fk_socpeople = 1) )
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid as projectid, p.fk_statut as projectstatus, t.rowid as taskid, t.progress as progress, t.fk_statut as status, t.dateo as date_start, t.datee as datee FROM llx_projet as p LEFT JOIN llx_societe as s on p.fk_soc = s.rowid, llx_projet_task as t WHERE p.entity IN (1) AND p.fk_statut = 1 AND t.fk_projet = p.rowid AND t.progress < 100
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec, p.fin_validite as datefin, p.total_ht FROM llx_propal as p WHERE p.entity IN (1) AND p.fk_statut = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec, p.fin_validite as datefin, p.total_ht FROM llx_propal as p WHERE p.entity IN (1) AND p.fk_statut = 2
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec FROM llx_supplier_proposal as p WHERE p.entity IN (1) AND p.fk_statut = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec FROM llx_supplier_proposal as p WHERE p.entity IN (1) AND p.fk_statut = 2
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT c.rowid, c.date_creation as datec, c.date_commande, c.date_livraison as delivery_date, c.fk_statut, c.total_ht FROM llx_commande as c WHERE c.entity IN (1) AND ((c.fk_statut IN (1,2)) OR (c.fk_statut = 3 AND c.facture = 0))
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT c.rowid, c.date_creation as datec, c.date_commande, c.fk_statut, c.date_livraison as delivery_date FROM llx_commande_fournisseur as c WHERE c.entity = 1 AND c.fk_statut IN (1, 2)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT cd.rowid, cd.date_ouverture_prevue as datefin FROM llx_contrat as c, llx_contratdet as cd, llx_societe as s WHERE c.statut = 1 AND c.rowid = cd.fk_contrat AND cd.statut = 0 AND c.fk_soc = s.rowid AND c.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT cd.rowid, cd.date_fin_validite as datefin FROM llx_contrat as c, llx_contratdet as cd, llx_societe as s WHERE c.statut = 1 AND c.rowid = cd.fk_contrat AND cd.statut = 4 AND cd.date_fin_validite < '2019-03-18 17:23:13' AND c.fk_soc = s.rowid AND c.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT f.rowid, f.date_lim_reglement as datefin,f.fk_statut, f.total FROM llx_facture as f WHERE f.paye=0 AND f.entity = 1 AND f.fk_statut = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT ff.rowid, ff.date_lim_reglement as datefin, ff.fk_statut FROM llx_facture_fourn as ff WHERE ff.paye=0 AND ff.fk_statut > 0 AND ff.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT COUNT(ba.rowid) as nb FROM llx_bank_account as ba WHERE ba.rappro > 0 and ba.clos = 0 AND ba.entity IN (1) AND ba.courant != 2
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT b.rowid, b.datev as datefin FROM llx_bank as b, llx_bank_account as ba WHERE b.fk_account = ba.rowid AND ba.entity IN (1) AND b.fk_type = 'CHQ' AND b.fk_bordereau = 0 AND b.amount > 0
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT a.rowid, a.datefin, a.statut FROM llx_adherent as a WHERE a.statut = 1 AND a.entity IN (1) AND (a.datefin IS NULL or a.datefin < '2019-03-18 17:23:13')
+2019-03-18 17:23:13 DEBUG   ::1             User::loadParentOf
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT fk_user as id_parent, rowid as id_son FROM llx_user WHERE fk_user <> 0 AND entity IN (0,1)
+2019-03-18 17:23:13 DEBUG   ::1             User::get_full_tree get user list
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT DISTINCT u.rowid, u.firstname, u.lastname, u.fk_user, u.fk_soc, u.login, u.email, u.gender, u.admin, u.statut, u.photo, u.entity FROM llx_user as u WHERE u.entity IN (0,1)
+2019-03-18 17:23:13 DEBUG   ::1             User::get_full_tree call to build_path_from_id_user
+2019-03-18 17:23:13 DEBUG   ::1             User::build_path_from_id_user id_user=1 protection=0
+2019-03-18 17:23:13 DEBUG   ::1             User::get_full_tree dol_sort_array
+2019-03-18 17:23:13 DEBUG   ::1             Build childid for id = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT ex.rowid, ex.date_valid FROM llx_expensereport as ex WHERE ex.fk_statut = 2 AND ex.entity IN (1) AND (ex.fk_user_author IN (1) OR ex.fk_user_validator IN (1))
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT ex.rowid, ex.date_valid FROM llx_expensereport as ex WHERE ex.fk_statut = 5 AND ex.entity IN (1) AND (ex.fk_user_author IN (1) OR ex.fk_user_validator IN (1))
+2019-03-18 17:23:13 DEBUG   ::1             --- End access to /index.php
+2019-03-18 17:23:13 DEBUG   ::1             - This is an already logged session. _SESSION['dol_login']=airblio _SESSION['dol_entity']=1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT u.rowid, u.lastname, u.firstname, u.employee, u.gender, u.birth, u.email, u.job, u.skype, u.twitter, u.facebook, u.signature, u.office_phone, u.office_fax, u.user_mobile, u.address, u.zip, u.town, u.fk_state as state_id, u.fk_country as country_id, u.admin, u.login, u.note, u.pass, u.pass_crypted, u.pass_temp, u.api_key, u.fk_soc, u.fk_socpeople, u.fk_member, u.fk_user, u.ldap_sid, u.statut, u.lang, u.entity, u.datec as datec, u.tms as datem, u.datelastlogin as datel, u.datepreviouslogin as datep, u.photo as photo, u.openid as openid, u.accountancy_code, u.thm, u.tjm, u.salary, u.salaryextra, u.weeklyhours, u.color, u.dateemployment, u.dateemploymentend, u.ref_int, u.ref_ext, u.default_range, u.default_c_exp_tax_cat, c.code as country_code, c.label as country, d.code_departement as state_code, d.nom as state FROM llx_user as u LEFT JOIN llx_c_country as c ON u.fk_country = c.rowid LEFT JOIN llx_c_departements as d ON u.fk_state = d.rowid WHERE u.entity IN (0, 1) AND u.login = 'airblio' ORDER BY u.entity ASC
+2019-03-18 17:23:13 DEBUG   ::1             fetch_name_optionals_label elementtype=user
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT rowid,name,label,type,size,elementtype,fieldunique,fieldrequired,param,pos,alwayseditable,perms,langs,list,totalizable,fielddefault,fieldcomputed,entity,enabled,help FROM llx_extrafields WHERE entity IN (0,1) AND elementtype = 'user' ORDER BY pos
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT param, value FROM llx_user_param WHERE fk_user = 1 AND entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT rowid, entity, type, page, param, value FROM llx_default_values WHERE entity IN (1) AND user_id IN (0, 1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT DISTINCT r.module, r.perms, r.subperms FROM llx_user_rights as ur, llx_rights_def as r WHERE r.id = ur.fk_id AND ur.entity = 1 AND ur.fk_user= 1 AND r.perms IS NOT NULL
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT DISTINCT r.module, r.perms, r.subperms FROM llx_usergroup_rights as gr, llx_usergroup_user as gu, llx_rights_def as r WHERE r.id = gr.fk_id AND gr.entity = 1 AND r.entity = 1 AND gr.fk_usergroup = gu.fk_usergroup AND gu.fk_user = 1 AND r.perms IS NOT NULL
+2019-03-18 17:23:13 DEBUG   ::1             --- Access to /index.php - action=, massaction=
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT transkey, transvalue FROM llx_overwrite_trans where lang='fr_FR'
+2019-03-18 17:23:13 DEBUG   ::1             Menubase::menuLoad mymainmenu=home myleftmenu=home type_user=0 menu_handler=eldy tabMenu size=0
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT m.rowid, m.type, m.module, m.fk_menu, m.fk_mainmenu, m.fk_leftmenu, m.url, m.titre, m.langs, m.perms, m.enabled, m.target, m.mainmenu, m.leftmenu, m.position FROM llx_menu as m WHERE m.entity IN (0,1) AND m.menu_handler IN ('eldy','all') AND m.usertype IN (0,2) ORDER BY m.position, m.rowid
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT rowid, title, url, target FROM llx_bookmark WHERE (fk_user = 1 OR fk_user is NULL OR fk_user = 0) AND entity IN (1) ORDER BY position
+2019-03-18 17:23:13 DEBUG   ::1             InfoBox::listBoxes get default box list for mode=activated userid=
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT b.rowid, b.position, b.box_order, b.fk_user, d.rowid as box_id, d.file, d.note, d.tms FROM llx_boxes as b, llx_boxes_def as d WHERE b.box_id = d.rowid AND b.entity IN (0,1) AND b.position = 0 AND b.fk_user = 0 ORDER BY b.box_order
+2019-03-18 17:23:13 DEBUG   ::1             box_lastlogin::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, f.rowid as facid, f.ref, f.ref_supplier, f.date_lim_reglement as datelimite, f.amount, f.datef as df, f.total_ht as total_ht, f.tva as total_tva, f.total_ttc, f.paye, f.fk_statut, f.type FROM llx_societe as s,llx_facture_fourn as f WHERE f.fk_soc = s.rowid AND f.entity = 1 AND f.paye=0 AND fk_statut = 1 ORDER BY datelimite DESC, f.ref_supplier DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_factures_fourn_imp::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_fournisseur, s.logo, f.rowid as facid, f.ref, f.ref_supplier, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut, f.datef as df, f.datec as datec, f.date_lim_reglement as datelimite, f.tms, f.type FROM llx_societe as s, llx_facture_fourn as f WHERE f.fk_soc = s.rowid AND f.entity = 1 ORDER BY f.tms DESC, f.ref DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_factures_fourn::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.code_fournisseur, s.logo, c.rowid, c.ref, c.tms, c.date_commande, c.total_ht, c.tva as total_tva, c.total_ttc, c.fk_statut FROM llx_societe as s, llx_commande_fournisseur as c WHERE c.fk_soc = s.rowid AND c.entity = 1 ORDER BY c.tms DESC, c.ref DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_supplier_orders::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.email, s.code_client, s.logo, f.facnumber, f.date_lim_reglement as datelimite, f.type, f.amount, f.datef as df, f.total as total_ht, f.tva as total_tva, f.total_ttc, f.paye, f.fk_statut, f.rowid as facid, sum(pf.amount) as am FROM llx_societe as s, llx_facture as f LEFT JOIN llx_paiement_facture as pf ON f.rowid=pf.fk_facture  WHERE f.fk_soc = s.rowid AND f.entity = 1 AND f.paye = 0 AND fk_statut = 1 GROUP BY s.nom, s.rowid, s.code_client, s.logo, f.facnumber, f.date_lim_reglement, f.type, f.amount, f.datef, f.total, f.tva, f.total_ttc, f.paye, f.fk_statut, f.rowid ORDER BY datelimite ASC, f.facnumber ASC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_factures_imp::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT f.rowid as facid, f.facnumber, f.type, f.total as total_ht, f.tva as total_tva, f.total_ttc, f.datef as df, f.paye, f.fk_statut, f.datec, f.tms, s.rowid as socid, s.nom as name, s.code_client, s.email, s.tva_intra, s.code_compta, s.siren as idprof1, s.siret as idprof2, s.ape as idprof3, s.idprof4, s.idprof5, s.idprof6, f.date_lim_reglement as datelimite FROM (llx_societe as s,llx_facture as f) WHERE f.fk_soc = s.rowid AND f.entity = 1 ORDER BY f.tms DESC, f.facnumber DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_factures::showBox
+2019-03-18 17:23:13 DEBUG   ::1             FactureStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getNbByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             FactureStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAmountByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             box_graph_invoices_permonth::showBox
+2019-03-18 17:23:13 DEBUG   ::1             box_comptes::loadBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT b.rowid, b.ref, b.label, b.bank,b.number, b.courant, b.clos, b.rappro, b.url, b.code_banque, b.code_guichet, b.cle_rib, b.bic, b.iban_prefix as iban, b.domiciliation, b.proprio, b.owner_address, b.account_number, b.currency_code, b.min_allowed, b.min_desired, comment, b.fk_accountancy_journal, aj.code as accountancy_journal FROM llx_bank_account as b LEFT JOIN llx_accounting_journal as aj ON aj.rowid=b.fk_accountancy_journal WHERE b.entity = 1 AND clos = 0 ORDER BY label LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_comptes::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.label, p.ref, p.price, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.fk_price_expression, p.entity FROM llx_product as p WHERE p.entity IN (1) ORDER BY p.datec DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_produits::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.label, p.price, p.ref, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.seuil_stock_alerte, p.entity, SUM(IF(s.reel IS NULL,0,s.reel)) as total_stock FROM llx_product as p LEFT JOIN llx_product_stock as s on p.rowid = s.fk_product WHERE p.entity IN (1) AND p.tosell = 1 AND p.seuil_stock_alerte > 0 GROUP BY p.rowid, p.ref, p.label, p.price, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.seuil_stock_alerte, p.entity HAVING SUM(IF(s.reel IS NULL,0,s.reel)) < p.seuil_stock_alerte ORDER BY p.seuil_stock_alerte DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_produits_alerte_stock::showBox
+2019-03-18 17:23:13 DEBUG   ::1             FactureStats::getAllByProductEntry read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAllByProductEntry_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type=pie this->MaxValue=2
+2019-03-18 17:23:13 DEBUG   ::1             PropaleStats::getAllByProductEntry read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getAllByProductEntry_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type=pie this->MaxValue=2
+2019-03-18 17:23:13 DEBUG   ::1             CommandeStats::getAllByProductEntry read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAllByProductEntry_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type=pie this->MaxValue=2
+2019-03-18 17:23:13 DEBUG   ::1             box_graph_product_distribution::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.email, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta, s.code_compta_fournisseur, c.rowid, c.ref, c.statut as contract_status, c.ref_customer, c.ref_supplier, cd.rowid as cdid, cd.label, cd.description, cd.tms as datem, cd.statut, cd.product_type as type, p.rowid as product_id, p.ref as product_ref, p.label as plabel, p.fk_product_type as ptype, p.entity FROM (llx_societe as s INNER JOIN llx_contrat as c ON s.rowid = c.fk_soc INNER JOIN llx_contratdet as cd ON c.rowid = cd.fk_contrat LEFT JOIN llx_product as p ON cd.fk_product = p.rowid) WHERE c.entity = 1 ORDER BY c.tms DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_services_contracts::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.title, p.fk_statut, p.public FROM llx_projet as p WHERE p.entity IN (1) AND p.fk_statut = 1 ORDER BY p.datec DESC
+2019-03-18 17:23:13 DEBUG   ::1             box_project::showBox
+2019-03-18 17:23:13 DEBUG   ::1             Box_actions::loadBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT a.id, a.label, a.datep as dp, a.percent as percentage, ta.code, ta.libelle as type_label, s.nom as name, s.rowid as socid, s.code_client FROM (llx_c_actioncomm AS ta, llx_actioncomm AS a) LEFT JOIN llx_societe as s ON a.fk_soc = s.rowid WHERE a.fk_action = ta.id AND a.entity = 1 AND a.percent >= 0 AND a.percent < 100 ORDER BY a.datec DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_actions::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.datec, s.tms, s.status, s.code_fournisseur, s.logo FROM llx_societe as s WHERE s.fournisseur = 1 AND s.entity IN (1) ORDER BY s.tms DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_fournisseurs::showBox
+2019-03-18 17:23:13 DEBUG   ::1             ModeleBoxes::showBox
+2019-03-18 17:23:13 DEBUG   ::1             CommandeStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getNbByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             CommandeStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAmountByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             box_graph_orders_supplier_permonth::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT a.rowid, a.lastname, a.firstname, a.societe as company, a.fk_soc, a.datec, a.tms, a.statut as status, a.datefin as date_end_subscription, t.subscription FROM llx_adherent as a, llx_adherent_type as t WHERE a.entity IN (1) AND a.fk_adherent_type = t.rowid ORDER BY a.tms DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_members::showBox
+2019-03-18 17:23:13 DEBUG   ::1             box_clients::loadBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.client, s.code_fournisseur, s.fournisseur, s.code_compta, s.code_compta_fournisseur, s.logo, s.email, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (1, 3) AND s.entity IN (1) ORDER BY s.tms DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_clients::showBox
+2019-03-18 17:23:13 DEBUG   ::1             box_prospect::loadBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.client, s.code_fournisseur, s.fournisseur, s.logo, s.fk_stcomm, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (2, 3) AND s.entity IN (1) ORDER BY s.tms DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_prospect::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT sp.rowid as id, sp.lastname, sp.firstname, sp.civility as civility_id, sp.datec, sp.tms, sp.fk_soc, sp.statut as status, sp.address, sp.zip, sp.town, sp.phone, sp.phone_perso, sp.phone_mobile, s.nom as socname, s.name_alias, s.client, s.fournisseur, s.code_client, s.code_fournisseur FROM llx_socpeople as sp LEFT JOIN llx_societe as s ON sp.fk_soc = s.rowid WHERE sp.entity IN (1) ORDER BY sp.tms DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_contacts::showBox
+2019-03-18 17:23:13 DEBUG   ::1             PropaleStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getNbByMonthWithPrevYear_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type=bars,bars this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             PropaleStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getAmountByMonthWithPrevYear_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type=bars,bars this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             box_graph_propales_permonth::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.logo, p.rowid, p.ref, p.fk_statut, p.datep as dp, p.datec, p.fin_validite, p.date_cloture, p.total_ht, p.tva as total_tva, p.total as total_ttc, p.tms FROM llx_societe as s, llx_propal as p WHERE p.fk_soc = s.rowid AND p.entity = 1 ORDER BY p.tms DESC, p.ref DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_propales::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.logo, c.ref, c.tms, c.rowid, c.date_commande, c.ref_client, c.fk_statut, c.fk_user_valid, c.facture, c.total_ht, c.tva as total_tva, c.total_ttc FROM llx_societe as s, llx_commande as c WHERE c.fk_soc = s.rowid AND c.entity = 1 ORDER BY c.tms DESC, c.ref DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_commandes::showBox
+2019-03-18 17:23:13 DEBUG   ::1             CommandeStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getNbByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             CommandeStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAmountByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             box_graph_orders_permonth::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.email, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta, s.code_compta_fournisseur, c.rowid, c.ref, c.statut as fk_statut, c.date_contrat, c.datec, c.fin_validite, c.date_cloture FROM llx_societe as s, llx_contrat as c WHERE c.fk_soc = s.rowid AND c.entity = 1 ORDER BY c.tms DESC, c.ref DESC  LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_contracts::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT  c.rowid, c.ref, c.statut as fk_statut, c.date_contrat, c.ref_customer, c.ref_supplier, s.nom as name, s.rowid as socid, s.email, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta, s.code_compta_fournisseur, MIN(cd.date_fin_validite) as date_line, COUNT(cd.rowid) as nb_services FROM llx_contrat as c, llx_societe s, llx_contratdet as cd WHERE cd.statut = 4 AND cd.date_fin_validite <= '2019-03-18 17:23:13' AND c.entity = 1 AND c.fk_soc=s.rowid AND cd.fk_contrat=c.rowid AND c.statut > 0 GROUP BY c.rowid, c.ref, c.statut, c.date_contrat, c.ref_customer, c.ref_supplier, s.nom, s.rowid ORDER BY date_line ASC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_services_expired::showBox
+2019-03-18 17:23:13 DEBUG   ::1             box_ficheinter::loadBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT f.rowid, f.ref, f.fk_soc, f.fk_statut, f.datec, f.date_valid as datev, f.tms as datem, s.nom as name, s.rowid as socid, s.client FROM llx_societe as s, llx_fichinter as f WHERE f.fk_soc = s.rowid  AND f.entity = 1 ORDER BY f.tms DESC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_ficheinter::showBox
+2019-03-18 17:23:13 DEBUG   ::1             FactureStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getNbByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             FactureStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAmountByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:13 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:13 DEBUG   ::1             box_graph_invoices_supplier_permonth::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT b.title, b.url, b.target, b.favicon FROM llx_bookmark as b WHERE fk_user = 1 AND b.entity = 1 ORDER BY position ASC LIMIT 5
+2019-03-18 17:23:13 DEBUG   ::1             box_bookmarks::showBox
+2019-03-18 17:23:13 DEBUG   ::1             ModeleBoxes::showBox
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(u.rowid) as nb FROM llx_user as u WHERE u.statut > 0 AND u.entity IN (0,1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(s.rowid) as nb, s.client FROM llx_societe as s WHERE s.client IN (1,2,3) AND s.entity IN (1) GROUP BY s.client
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(s.rowid) as nb FROM llx_societe as s WHERE s.fournisseur = 1 AND s.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(sp.rowid) as nb FROM llx_socpeople as sp WHERE sp.entity IN (1) AND (sp.priv='0' OR (sp.priv='1' AND sp.fk_user_creat=1))
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(a.rowid) as nb FROM llx_adherent as a WHERE a.statut > 0 AND a.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(p.rowid) as nb, fk_product_type FROM llx_product as p WHERE p.entity IN (1) GROUP BY fk_product_type
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(p.rowid) as nb FROM llx_propal as p LEFT JOIN llx_societe as s ON p.fk_soc = s.rowid WHERE p.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(co.rowid) as nb FROM llx_commande as co LEFT JOIN llx_societe as s ON co.fk_soc = s.rowid WHERE co.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(f.rowid) as nb FROM llx_facture as f LEFT JOIN llx_societe as s ON f.fk_soc = s.rowid WHERE f.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(c.rowid) as nb FROM llx_contrat as c LEFT JOIN llx_societe as s ON c.fk_soc = s.rowid WHERE c.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(fi.rowid) as nb FROM llx_fichinter as fi LEFT JOIN llx_societe as s ON fi.fk_soc = s.rowid WHERE fi.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(co.rowid) as nb FROM llx_commande_fournisseur as co LEFT JOIN llx_societe as s ON co.fk_soc = s.rowid WHERE co.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(f.rowid) as nb FROM llx_facture_fourn as f LEFT JOIN llx_societe as s ON f.fk_soc = s.rowid WHERE f.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(p.rowid) as nb FROM llx_supplier_proposal as p LEFT JOIN llx_societe as s ON p.fk_soc = s.rowid WHERE p.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(p.rowid) as nb FROM llx_projet as p WHERE p.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(ex.rowid) as nb FROM llx_expensereport as ex WHERE ex.fk_statut > 0 AND ex.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT count(d.rowid) as nb FROM llx_don as d WHERE d.fk_statut > 0 AND d.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT a.id, a.datep as dp FROM (llx_actioncomm as a) LEFT JOIN llx_societe as s ON a.fk_soc = s.rowid WHERE 1 = 1 AND a.percent >= 0 AND a.percent < 100 AND a.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.fk_statut as status, p.fk_opp_status, p.datee as datee FROM (llx_projet as p) LEFT JOIN llx_societe as s on p.fk_soc = s.rowid WHERE p.fk_statut = 1 AND p.entity IN (1)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT ctc.rowid, ctc.code FROM llx_c_type_contact as ctc WHERE ctc.element = 'project' AND ctc.source = 'internal'
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT DISTINCT p.rowid, p.ref FROM llx_projet as p, llx_element_contact as ec WHERE p.entity IN (1) AND ec.element_id = p.rowid AND ( p.public = 1 OR ( ec.fk_c_type_contact IN (161,160) AND ec.fk_socpeople = 1) )
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid as projectid, p.fk_statut as projectstatus, t.rowid as taskid, t.progress as progress, t.fk_statut as status, t.dateo as date_start, t.datee as datee FROM llx_projet as p LEFT JOIN llx_societe as s on p.fk_soc = s.rowid, llx_projet_task as t WHERE p.entity IN (1) AND p.fk_statut = 1 AND t.fk_projet = p.rowid AND t.progress < 100
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec, p.fin_validite as datefin, p.total_ht FROM llx_propal as p WHERE p.entity IN (1) AND p.fk_statut = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec, p.fin_validite as datefin, p.total_ht FROM llx_propal as p WHERE p.entity IN (1) AND p.fk_statut = 2
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec FROM llx_supplier_proposal as p WHERE p.entity IN (1) AND p.fk_statut = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec FROM llx_supplier_proposal as p WHERE p.entity IN (1) AND p.fk_statut = 2
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT c.rowid, c.date_creation as datec, c.date_commande, c.date_livraison as delivery_date, c.fk_statut, c.total_ht FROM llx_commande as c WHERE c.entity IN (1) AND ((c.fk_statut IN (1,2)) OR (c.fk_statut = 3 AND c.facture = 0))
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT c.rowid, c.date_creation as datec, c.date_commande, c.fk_statut, c.date_livraison as delivery_date FROM llx_commande_fournisseur as c WHERE c.entity = 1 AND c.fk_statut IN (1, 2)
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT cd.rowid, cd.date_ouverture_prevue as datefin FROM llx_contrat as c, llx_contratdet as cd, llx_societe as s WHERE c.statut = 1 AND c.rowid = cd.fk_contrat AND cd.statut = 0 AND c.fk_soc = s.rowid AND c.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT cd.rowid, cd.date_fin_validite as datefin FROM llx_contrat as c, llx_contratdet as cd, llx_societe as s WHERE c.statut = 1 AND c.rowid = cd.fk_contrat AND cd.statut = 4 AND cd.date_fin_validite < '2019-03-18 17:23:13' AND c.fk_soc = s.rowid AND c.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT f.rowid, f.date_lim_reglement as datefin,f.fk_statut, f.total FROM llx_facture as f WHERE f.paye=0 AND f.entity = 1 AND f.fk_statut = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT ff.rowid, ff.date_lim_reglement as datefin, ff.fk_statut FROM llx_facture_fourn as ff WHERE ff.paye=0 AND ff.fk_statut > 0 AND ff.entity = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT COUNT(ba.rowid) as nb FROM llx_bank_account as ba WHERE ba.rappro > 0 and ba.clos = 0 AND ba.entity IN (1) AND ba.courant != 2
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT b.rowid, b.datev as datefin FROM llx_bank as b, llx_bank_account as ba WHERE b.fk_account = ba.rowid AND ba.entity IN (1) AND b.fk_type = 'CHQ' AND b.fk_bordereau = 0 AND b.amount > 0
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT a.rowid, a.datefin, a.statut FROM llx_adherent as a WHERE a.statut = 1 AND a.entity IN (1) AND (a.datefin IS NULL or a.datefin < '2019-03-18 17:23:13')
+2019-03-18 17:23:13 DEBUG   ::1             User::loadParentOf
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT fk_user as id_parent, rowid as id_son FROM llx_user WHERE fk_user <> 0 AND entity IN (0,1)
+2019-03-18 17:23:13 DEBUG   ::1             User::get_full_tree get user list
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT DISTINCT u.rowid, u.firstname, u.lastname, u.fk_user, u.fk_soc, u.login, u.email, u.gender, u.admin, u.statut, u.photo, u.entity FROM llx_user as u WHERE u.entity IN (0,1)
+2019-03-18 17:23:13 DEBUG   ::1             User::get_full_tree call to build_path_from_id_user
+2019-03-18 17:23:13 DEBUG   ::1             User::build_path_from_id_user id_user=1 protection=0
+2019-03-18 17:23:13 DEBUG   ::1             User::get_full_tree dol_sort_array
+2019-03-18 17:23:13 DEBUG   ::1             Build childid for id = 1
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT ex.rowid, ex.date_valid FROM llx_expensereport as ex WHERE ex.fk_statut = 2 AND ex.entity IN (1) AND (ex.fk_user_author IN (1) OR ex.fk_user_validator IN (1))
+2019-03-18 17:23:13 DEBUG   ::1             sql=SELECT ex.rowid, ex.date_valid FROM llx_expensereport as ex WHERE ex.fk_statut = 5 AND ex.entity IN (1) AND (ex.fk_user_author IN (1) OR ex.fk_user_validator IN (1))
+2019-03-18 17:23:13 DEBUG   ::1             --- End access to /index.php
+2019-03-18 17:23:30 DEBUG   ::1             - This is an already logged session. _SESSION['dol_login']=airblio _SESSION['dol_entity']=1
+2019-03-18 17:23:30 DEBUG   ::1             sql=SELECT u.rowid, u.lastname, u.firstname, u.employee, u.gender, u.birth, u.email, u.job, u.skype, u.twitter, u.facebook, u.signature, u.office_phone, u.office_fax, u.user_mobile, u.address, u.zip, u.town, u.fk_state as state_id, u.fk_country as country_id, u.admin, u.login, u.note, u.pass, u.pass_crypted, u.pass_temp, u.api_key, u.fk_soc, u.fk_socpeople, u.fk_member, u.fk_user, u.ldap_sid, u.statut, u.lang, u.entity, u.datec as datec, u.tms as datem, u.datelastlogin as datel, u.datepreviouslogin as datep, u.photo as photo, u.openid as openid, u.accountancy_code, u.thm, u.tjm, u.salary, u.salaryextra, u.weeklyhours, u.color, u.dateemployment, u.dateemploymentend, u.ref_int, u.ref_ext, u.default_range, u.default_c_exp_tax_cat, c.code as country_code, c.label as country, d.code_departement as state_code, d.nom as state FROM llx_user as u LEFT JOIN llx_c_country as c ON u.fk_country = c.rowid LEFT JOIN llx_c_departements as d ON u.fk_state = d.rowid WHERE u.entity IN (0, 1) AND u.login = 'airblio' ORDER BY u.entity ASC
+2019-03-18 17:23:30 DEBUG   ::1             fetch_name_optionals_label elementtype=user
+2019-03-18 17:23:30 DEBUG   ::1             sql=SELECT rowid,name,label,type,size,elementtype,fieldunique,fieldrequired,param,pos,alwayseditable,perms,langs,list,totalizable,fielddefault,fieldcomputed,entity,enabled,help FROM llx_extrafields WHERE entity IN (0,1) AND elementtype = 'user' ORDER BY pos
+2019-03-18 17:23:30 DEBUG   ::1             sql=SELECT param, value FROM llx_user_param WHERE fk_user = 1 AND entity = 1
+2019-03-18 17:23:30 DEBUG   ::1             sql=SELECT rowid, entity, type, page, param, value FROM llx_default_values WHERE entity IN (1) AND user_id IN (0, 1)
+2019-03-18 17:23:30 DEBUG   ::1             sql=SELECT DISTINCT r.module, r.perms, r.subperms FROM llx_user_rights as ur, llx_rights_def as r WHERE r.id = ur.fk_id AND ur.entity = 1 AND ur.fk_user= 1 AND r.perms IS NOT NULL
+2019-03-18 17:23:30 DEBUG   ::1             sql=SELECT DISTINCT r.module, r.perms, r.subperms FROM llx_usergroup_rights as gr, llx_usergroup_user as gu, llx_rights_def as r WHERE r.id = gr.fk_id AND gr.entity = 1 AND r.entity = 1 AND gr.fk_usergroup = gu.fk_usergroup AND gu.fk_user = 1 AND r.perms IS NOT NULL
+2019-03-18 17:23:30 DEBUG   ::1             --- Access to /index.php - action=, massaction=
+2019-03-18 17:23:30 DEBUG   ::1             sql=SELECT transkey, transvalue FROM llx_overwrite_trans where lang='fr_FR'
+2019-03-18 17:23:30 DEBUG   ::1             Menubase::menuLoad mymainmenu=home myleftmenu=home type_user=0 menu_handler=eldy tabMenu size=0
+2019-03-18 17:23:30 DEBUG   ::1             sql=SELECT m.rowid, m.type, m.module, m.fk_menu, m.fk_mainmenu, m.fk_leftmenu, m.url, m.titre, m.langs, m.perms, m.enabled, m.target, m.mainmenu, m.leftmenu, m.position FROM llx_menu as m WHERE m.entity IN (0,1) AND m.menu_handler IN ('eldy','all') AND m.usertype IN (0,2) ORDER BY m.position, m.rowid
+2019-03-18 17:23:30 DEBUG   ::1             sql=SELECT rowid, title, url, target FROM llx_bookmark WHERE (fk_user = 1 OR fk_user is NULL OR fk_user = 0) AND entity IN (1) ORDER BY position
+2019-03-18 17:23:30 DEBUG   ::1             InfoBox::listBoxes get default box list for mode=activated userid=
+2019-03-18 17:23:30 DEBUG   ::1             sql=SELECT b.rowid, b.position, b.box_order, b.fk_user, d.rowid as box_id, d.file, d.note, d.tms FROM llx_boxes as b, llx_boxes_def as d WHERE b.box_id = d.rowid AND b.entity IN (0,1) AND b.position = 0 AND b.fk_user = 0 ORDER BY b.box_order
+2019-03-18 17:23:30 DEBUG   ::1             box_lastlogin::showBox
+2019-03-18 17:23:30 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, f.rowid as facid, f.ref, f.ref_supplier, f.date_lim_reglement as datelimite, f.amount, f.datef as df, f.total_ht as total_ht, f.tva as total_tva, f.total_ttc, f.paye, f.fk_statut, f.type FROM llx_societe as s,llx_facture_fourn as f WHERE f.fk_soc = s.rowid AND f.entity = 1 AND f.paye=0 AND fk_statut = 1 ORDER BY datelimite DESC, f.ref_supplier DESC  LIMIT 5
+2019-03-18 17:23:30 DEBUG   ::1             box_factures_fourn_imp::showBox
+2019-03-18 17:23:30 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_fournisseur, s.logo, f.rowid as facid, f.ref, f.ref_supplier, f.total_ht, f.total_tva, f.total_ttc, f.paye, f.fk_statut, f.datef as df, f.datec as datec, f.date_lim_reglement as datelimite, f.tms, f.type FROM llx_societe as s, llx_facture_fourn as f WHERE f.fk_soc = s.rowid AND f.entity = 1 ORDER BY f.tms DESC, f.ref DESC  LIMIT 5
+2019-03-18 17:23:30 DEBUG   ::1             box_factures_fourn::showBox
+2019-03-18 17:23:30 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.code_fournisseur, s.logo, c.rowid, c.ref, c.tms, c.date_commande, c.total_ht, c.tva as total_tva, c.total_ttc, c.fk_statut FROM llx_societe as s, llx_commande_fournisseur as c WHERE c.fk_soc = s.rowid AND c.entity = 1 ORDER BY c.tms DESC, c.ref DESC  LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_supplier_orders::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.email, s.code_client, s.logo, f.facnumber, f.date_lim_reglement as datelimite, f.type, f.amount, f.datef as df, f.total as total_ht, f.tva as total_tva, f.total_ttc, f.paye, f.fk_statut, f.rowid as facid, sum(pf.amount) as am FROM llx_societe as s, llx_facture as f LEFT JOIN llx_paiement_facture as pf ON f.rowid=pf.fk_facture  WHERE f.fk_soc = s.rowid AND f.entity = 1 AND f.paye = 0 AND fk_statut = 1 GROUP BY s.nom, s.rowid, s.code_client, s.logo, f.facnumber, f.date_lim_reglement, f.type, f.amount, f.datef, f.total, f.tva, f.total_ttc, f.paye, f.fk_statut, f.rowid ORDER BY datelimite ASC, f.facnumber ASC  LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_factures_imp::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT f.rowid as facid, f.facnumber, f.type, f.total as total_ht, f.tva as total_tva, f.total_ttc, f.datef as df, f.paye, f.fk_statut, f.datec, f.tms, s.rowid as socid, s.nom as name, s.code_client, s.email, s.tva_intra, s.code_compta, s.siren as idprof1, s.siret as idprof2, s.ape as idprof3, s.idprof4, s.idprof5, s.idprof6, f.date_lim_reglement as datelimite FROM (llx_societe as s,llx_facture as f) WHERE f.fk_soc = s.rowid AND f.entity = 1 ORDER BY f.tms DESC, f.facnumber DESC  LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_factures::showBox
+2019-03-18 17:23:31 DEBUG   ::1             FactureStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getNbByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:31 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:31 DEBUG   ::1             FactureStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAmountByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:31 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:31 DEBUG   ::1             box_graph_invoices_permonth::showBox
+2019-03-18 17:23:31 DEBUG   ::1             box_comptes::loadBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT b.rowid, b.ref, b.label, b.bank,b.number, b.courant, b.clos, b.rappro, b.url, b.code_banque, b.code_guichet, b.cle_rib, b.bic, b.iban_prefix as iban, b.domiciliation, b.proprio, b.owner_address, b.account_number, b.currency_code, b.min_allowed, b.min_desired, comment, b.fk_accountancy_journal, aj.code as accountancy_journal FROM llx_bank_account as b LEFT JOIN llx_accounting_journal as aj ON aj.rowid=b.fk_accountancy_journal WHERE b.entity = 1 AND clos = 0 ORDER BY label LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_comptes::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT p.rowid, p.label, p.ref, p.price, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.fk_price_expression, p.entity FROM llx_product as p WHERE p.entity IN (1) ORDER BY p.datec DESC LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_produits::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT p.rowid, p.label, p.price, p.ref, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.seuil_stock_alerte, p.entity, SUM(IF(s.reel IS NULL,0,s.reel)) as total_stock FROM llx_product as p LEFT JOIN llx_product_stock as s on p.rowid = s.fk_product WHERE p.entity IN (1) AND p.tosell = 1 AND p.seuil_stock_alerte > 0 GROUP BY p.rowid, p.ref, p.label, p.price, p.price_base_type, p.price_ttc, p.fk_product_type, p.tms, p.tosell, p.tobuy, p.seuil_stock_alerte, p.entity HAVING SUM(IF(s.reel IS NULL,0,s.reel)) < p.seuil_stock_alerte ORDER BY p.seuil_stock_alerte DESC LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_produits_alerte_stock::showBox
+2019-03-18 17:23:31 DEBUG   ::1             FactureStats::getAllByProductEntry read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAllByProductEntry_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:31 DEBUG   ::1             DolGraph::draw_jflot this->type=pie this->MaxValue=2
+2019-03-18 17:23:31 DEBUG   ::1             PropaleStats::getAllByProductEntry read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getAllByProductEntry_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:31 DEBUG   ::1             DolGraph::draw_jflot this->type=pie this->MaxValue=2
+2019-03-18 17:23:31 DEBUG   ::1             CommandeStats::getAllByProductEntry read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAllByProductEntry_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:31 DEBUG   ::1             DolGraph::draw_jflot this->type=pie this->MaxValue=2
+2019-03-18 17:23:31 DEBUG   ::1             box_graph_product_distribution::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.email, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta, s.code_compta_fournisseur, c.rowid, c.ref, c.statut as contract_status, c.ref_customer, c.ref_supplier, cd.rowid as cdid, cd.label, cd.description, cd.tms as datem, cd.statut, cd.product_type as type, p.rowid as product_id, p.ref as product_ref, p.label as plabel, p.fk_product_type as ptype, p.entity FROM (llx_societe as s INNER JOIN llx_contrat as c ON s.rowid = c.fk_soc INNER JOIN llx_contratdet as cd ON c.rowid = cd.fk_contrat LEFT JOIN llx_product as p ON cd.fk_product = p.rowid) WHERE c.entity = 1 ORDER BY c.tms DESC LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_services_contracts::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.title, p.fk_statut, p.public FROM llx_projet as p WHERE p.entity IN (1) AND p.fk_statut = 1 ORDER BY p.datec DESC
+2019-03-18 17:23:31 DEBUG   ::1             box_project::showBox
+2019-03-18 17:23:31 DEBUG   ::1             Box_actions::loadBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT a.id, a.label, a.datep as dp, a.percent as percentage, ta.code, ta.libelle as type_label, s.nom as name, s.rowid as socid, s.code_client FROM (llx_c_actioncomm AS ta, llx_actioncomm AS a) LEFT JOIN llx_societe as s ON a.fk_soc = s.rowid WHERE a.fk_action = ta.id AND a.entity = 1 AND a.percent >= 0 AND a.percent < 100 ORDER BY a.datec DESC LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_actions::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.datec, s.tms, s.status, s.code_fournisseur, s.logo FROM llx_societe as s WHERE s.fournisseur = 1 AND s.entity IN (1) ORDER BY s.tms DESC  LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_fournisseurs::showBox
+2019-03-18 17:23:31 DEBUG   ::1             ModeleBoxes::showBox
+2019-03-18 17:23:31 DEBUG   ::1             CommandeStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getNbByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:31 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:31 DEBUG   ::1             CommandeStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAmountByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:31 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:31 DEBUG   ::1             box_graph_orders_supplier_permonth::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT a.rowid, a.lastname, a.firstname, a.societe as company, a.fk_soc, a.datec, a.tms, a.statut as status, a.datefin as date_end_subscription, t.subscription FROM llx_adherent as a, llx_adherent_type as t WHERE a.entity IN (1) AND a.fk_adherent_type = t.rowid ORDER BY a.tms DESC LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_members::showBox
+2019-03-18 17:23:31 DEBUG   ::1             box_clients::loadBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.client, s.code_fournisseur, s.fournisseur, s.code_compta, s.code_compta_fournisseur, s.logo, s.email, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (1, 3) AND s.entity IN (1) ORDER BY s.tms DESC LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_clients::showBox
+2019-03-18 17:23:31 DEBUG   ::1             box_prospect::loadBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.client, s.code_fournisseur, s.fournisseur, s.logo, s.fk_stcomm, s.datec, s.tms, s.status FROM llx_societe as s WHERE s.client IN (2, 3) AND s.entity IN (1) ORDER BY s.tms DESC LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_prospect::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT sp.rowid as id, sp.lastname, sp.firstname, sp.civility as civility_id, sp.datec, sp.tms, sp.fk_soc, sp.statut as status, sp.address, sp.zip, sp.town, sp.phone, sp.phone_perso, sp.phone_mobile, s.nom as socname, s.name_alias, s.client, s.fournisseur, s.code_client, s.code_fournisseur FROM llx_socpeople as sp LEFT JOIN llx_societe as s ON sp.fk_soc = s.rowid WHERE sp.entity IN (1) ORDER BY sp.tms DESC LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_contacts::showBox
+2019-03-18 17:23:31 DEBUG   ::1             PropaleStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getNbByMonthWithPrevYear_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:31 DEBUG   ::1             DolGraph::draw_jflot this->type=bars,bars this->MaxValue=0
+2019-03-18 17:23:31 DEBUG   ::1             PropaleStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/PropaleStats_getAmountByMonthWithPrevYear_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:31 DEBUG   ::1             DolGraph::draw_jflot this->type=bars,bars this->MaxValue=0
+2019-03-18 17:23:31 DEBUG   ::1             box_graph_propales_permonth::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.logo, p.rowid, p.ref, p.fk_statut, p.datep as dp, p.datec, p.fin_validite, p.date_cloture, p.total_ht, p.tva as total_tva, p.total as total_ttc, p.tms FROM llx_societe as s, llx_propal as p WHERE p.fk_soc = s.rowid AND p.entity = 1 ORDER BY p.tms DESC, p.ref DESC  LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_propales::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.code_client, s.logo, c.ref, c.tms, c.rowid, c.date_commande, c.ref_client, c.fk_statut, c.fk_user_valid, c.facture, c.total_ht, c.tva as total_tva, c.total_ttc FROM llx_societe as s, llx_commande as c WHERE c.fk_soc = s.rowid AND c.entity = 1 ORDER BY c.tms DESC, c.ref DESC  LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_commandes::showBox
+2019-03-18 17:23:31 DEBUG   ::1             CommandeStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getNbByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:31 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:31 DEBUG   ::1             CommandeStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/CommandeStats_getAmountByMonthWithPrevYear_customer_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:31 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:31 DEBUG   ::1             box_graph_orders_permonth::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT s.nom as name, s.rowid as socid, s.email, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta, s.code_compta_fournisseur, c.rowid, c.ref, c.statut as fk_statut, c.date_contrat, c.datec, c.fin_validite, c.date_cloture FROM llx_societe as s, llx_contrat as c WHERE c.fk_soc = s.rowid AND c.entity = 1 ORDER BY c.tms DESC, c.ref DESC  LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_contracts::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT  c.rowid, c.ref, c.statut as fk_statut, c.date_contrat, c.ref_customer, c.ref_supplier, s.nom as name, s.rowid as socid, s.email, s.client, s.fournisseur, s.code_client, s.code_fournisseur, s.code_compta, s.code_compta_fournisseur, MIN(cd.date_fin_validite) as date_line, COUNT(cd.rowid) as nb_services FROM llx_contrat as c, llx_societe s, llx_contratdet as cd WHERE cd.statut = 4 AND cd.date_fin_validite <= '2019-03-18 17:23:31' AND c.entity = 1 AND c.fk_soc=s.rowid AND cd.fk_contrat=c.rowid AND c.statut > 0 GROUP BY c.rowid, c.ref, c.statut, c.date_contrat, c.ref_customer, c.ref_supplier, s.nom, s.rowid ORDER BY date_line ASC LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_services_expired::showBox
+2019-03-18 17:23:31 DEBUG   ::1             box_ficheinter::loadBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT f.rowid, f.ref, f.fk_soc, f.fk_statut, f.datec, f.date_valid as datev, f.tms as datem, s.nom as name, s.rowid as socid, s.client FROM llx_societe as s, llx_fichinter as f WHERE f.fk_soc = s.rowid  AND f.entity = 1 ORDER BY f.tms DESC LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_ficheinter::showBox
+2019-03-18 17:23:31 DEBUG   ::1             FactureStats::getNbByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getNbByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:31 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:31 DEBUG   ::1             FactureStats::getAmountByMonthWithPrevYear read data from cache file G:/Programmes/XAMPP/htdocs/Projet AIRBLIO/dolibarr-9.0.0/documents/users/temp/FactureStats_getAmountByMonthWithPrevYear_supplier_fr_FR_entity.1_user1.cache 1552926026.
+2019-03-18 17:23:31 DEBUG   ::1             DolGraph::draw_jflot this->type= this->MaxValue=0
+2019-03-18 17:23:31 DEBUG   ::1             box_graph_invoices_supplier_permonth::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT b.title, b.url, b.target, b.favicon FROM llx_bookmark as b WHERE fk_user = 1 AND b.entity = 1 ORDER BY position ASC LIMIT 5
+2019-03-18 17:23:31 DEBUG   ::1             box_bookmarks::showBox
+2019-03-18 17:23:31 DEBUG   ::1             ModeleBoxes::showBox
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(u.rowid) as nb FROM llx_user as u WHERE u.statut > 0 AND u.entity IN (0,1)
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(s.rowid) as nb, s.client FROM llx_societe as s WHERE s.client IN (1,2,3) AND s.entity IN (1) GROUP BY s.client
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(s.rowid) as nb FROM llx_societe as s WHERE s.fournisseur = 1 AND s.entity IN (1)
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(sp.rowid) as nb FROM llx_socpeople as sp WHERE sp.entity IN (1) AND (sp.priv='0' OR (sp.priv='1' AND sp.fk_user_creat=1))
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(a.rowid) as nb FROM llx_adherent as a WHERE a.statut > 0 AND a.entity IN (1)
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(p.rowid) as nb, fk_product_type FROM llx_product as p WHERE p.entity IN (1) GROUP BY fk_product_type
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(p.rowid) as nb FROM llx_propal as p LEFT JOIN llx_societe as s ON p.fk_soc = s.rowid WHERE p.entity IN (1)
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(co.rowid) as nb FROM llx_commande as co LEFT JOIN llx_societe as s ON co.fk_soc = s.rowid WHERE co.entity IN (1)
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(f.rowid) as nb FROM llx_facture as f LEFT JOIN llx_societe as s ON f.fk_soc = s.rowid WHERE f.entity = 1
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(c.rowid) as nb FROM llx_contrat as c LEFT JOIN llx_societe as s ON c.fk_soc = s.rowid WHERE c.entity = 1
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(fi.rowid) as nb FROM llx_fichinter as fi LEFT JOIN llx_societe as s ON fi.fk_soc = s.rowid WHERE fi.entity IN (1)
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(co.rowid) as nb FROM llx_commande_fournisseur as co LEFT JOIN llx_societe as s ON co.fk_soc = s.rowid WHERE co.entity = 1
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(f.rowid) as nb FROM llx_facture_fourn as f LEFT JOIN llx_societe as s ON f.fk_soc = s.rowid WHERE f.entity = 1
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(p.rowid) as nb FROM llx_supplier_proposal as p LEFT JOIN llx_societe as s ON p.fk_soc = s.rowid WHERE p.entity IN (1)
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(p.rowid) as nb FROM llx_projet as p WHERE p.entity IN (1)
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(ex.rowid) as nb FROM llx_expensereport as ex WHERE ex.fk_statut > 0 AND ex.entity IN (1)
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT count(d.rowid) as nb FROM llx_don as d WHERE d.fk_statut > 0 AND d.entity IN (1)
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT a.id, a.datep as dp FROM (llx_actioncomm as a) LEFT JOIN llx_societe as s ON a.fk_soc = s.rowid WHERE 1 = 1 AND a.percent >= 0 AND a.percent < 100 AND a.entity IN (1)
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT p.rowid, p.fk_statut as status, p.fk_opp_status, p.datee as datee FROM (llx_projet as p) LEFT JOIN llx_societe as s on p.fk_soc = s.rowid WHERE p.fk_statut = 1 AND p.entity IN (1)
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT ctc.rowid, ctc.code FROM llx_c_type_contact as ctc WHERE ctc.element = 'project' AND ctc.source = 'internal'
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT DISTINCT p.rowid, p.ref FROM llx_projet as p, llx_element_contact as ec WHERE p.entity IN (1) AND ec.element_id = p.rowid AND ( p.public = 1 OR ( ec.fk_c_type_contact IN (161,160) AND ec.fk_socpeople = 1) )
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT p.rowid as projectid, p.fk_statut as projectstatus, t.rowid as taskid, t.progress as progress, t.fk_statut as status, t.dateo as date_start, t.datee as datee FROM llx_projet as p LEFT JOIN llx_societe as s on p.fk_soc = s.rowid, llx_projet_task as t WHERE p.entity IN (1) AND p.fk_statut = 1 AND t.fk_projet = p.rowid AND t.progress < 100
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec, p.fin_validite as datefin, p.total_ht FROM llx_propal as p WHERE p.entity IN (1) AND p.fk_statut = 1
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec, p.fin_validite as datefin, p.total_ht FROM llx_propal as p WHERE p.entity IN (1) AND p.fk_statut = 2
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec FROM llx_supplier_proposal as p WHERE p.entity IN (1) AND p.fk_statut = 1
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT p.rowid, p.ref, p.datec as datec FROM llx_supplier_proposal as p WHERE p.entity IN (1) AND p.fk_statut = 2
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT c.rowid, c.date_creation as datec, c.date_commande, c.date_livraison as delivery_date, c.fk_statut, c.total_ht FROM llx_commande as c WHERE c.entity IN (1) AND ((c.fk_statut IN (1,2)) OR (c.fk_statut = 3 AND c.facture = 0))
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT c.rowid, c.date_creation as datec, c.date_commande, c.fk_statut, c.date_livraison as delivery_date FROM llx_commande_fournisseur as c WHERE c.entity = 1 AND c.fk_statut IN (1, 2)
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT cd.rowid, cd.date_ouverture_prevue as datefin FROM llx_contrat as c, llx_contratdet as cd, llx_societe as s WHERE c.statut = 1 AND c.rowid = cd.fk_contrat AND cd.statut = 0 AND c.fk_soc = s.rowid AND c.entity = 1
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT cd.rowid, cd.date_fin_validite as datefin FROM llx_contrat as c, llx_contratdet as cd, llx_societe as s WHERE c.statut = 1 AND c.rowid = cd.fk_contrat AND cd.statut = 4 AND cd.date_fin_validite < '2019-03-18 17:23:31' AND c.fk_soc = s.rowid AND c.entity = 1
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT f.rowid, f.date_lim_reglement as datefin,f.fk_statut, f.total FROM llx_facture as f WHERE f.paye=0 AND f.entity = 1 AND f.fk_statut = 1
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT ff.rowid, ff.date_lim_reglement as datefin, ff.fk_statut FROM llx_facture_fourn as ff WHERE ff.paye=0 AND ff.fk_statut > 0 AND ff.entity = 1
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT COUNT(ba.rowid) as nb FROM llx_bank_account as ba WHERE ba.rappro > 0 and ba.clos = 0 AND ba.entity IN (1) AND ba.courant != 2
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT b.rowid, b.datev as datefin FROM llx_bank as b, llx_bank_account as ba WHERE b.fk_account = ba.rowid AND ba.entity IN (1) AND b.fk_type = 'CHQ' AND b.fk_bordereau = 0 AND b.amount > 0
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT a.rowid, a.datefin, a.statut FROM llx_adherent as a WHERE a.statut = 1 AND a.entity IN (1) AND (a.datefin IS NULL or a.datefin < '2019-03-18 17:23:31')
+2019-03-18 17:23:31 DEBUG   ::1             User::loadParentOf
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT fk_user as id_parent, rowid as id_son FROM llx_user WHERE fk_user <> 0 AND entity IN (0,1)
+2019-03-18 17:23:31 DEBUG   ::1             User::get_full_tree get user list
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT DISTINCT u.rowid, u.firstname, u.lastname, u.fk_user, u.fk_soc, u.login, u.email, u.gender, u.admin, u.statut, u.photo, u.entity FROM llx_user as u WHERE u.entity IN (0,1)
+2019-03-18 17:23:31 DEBUG   ::1             User::get_full_tree call to build_path_from_id_user
+2019-03-18 17:23:31 DEBUG   ::1             User::build_path_from_id_user id_user=1 protection=0
+2019-03-18 17:23:31 DEBUG   ::1             User::get_full_tree dol_sort_array
+2019-03-18 17:23:31 DEBUG   ::1             Build childid for id = 1
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT ex.rowid, ex.date_valid FROM llx_expensereport as ex WHERE ex.fk_statut = 2 AND ex.entity IN (1) AND (ex.fk_user_author IN (1) OR ex.fk_user_validator IN (1))
+2019-03-18 17:23:31 DEBUG   ::1             sql=SELECT ex.rowid, ex.date_valid FROM llx_expensereport as ex WHERE ex.fk_statut = 5 AND ex.entity IN (1) AND (ex.fk_user_author IN (1) OR ex.fk_user_validator IN (1))
+2019-03-18 17:23:31 DEBUG   ::1             --- End access to /index.php
